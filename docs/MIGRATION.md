@@ -1,6 +1,6 @@
 # Moving an app onto the Harbor package
 
-Do this once per app, in that app's Claude Code session, on a branch, with the test suite green before and after. The three apps are Coifish (`CertKeep` folder, accent `koi`), ReelMinder (`Reelminder`, accent `brass`) and PacketSkipper (`Tabbed`, accent `kelp`).
+Do this once per app, in that app's Claude Code session, on a branch, with the test suite green before and after. The three apps are Coifish (`apps/Coifish`, accent `koi`), ReelMinder (`apps/ReelMinder`, accent `brass`) and PacketSkipper (`apps/PacketSkipper`, accent `kelp`).
 
 ## Steps
 
