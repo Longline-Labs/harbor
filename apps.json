@@ -1,0 +1,27 @@
+{
+  "company": "COIFISH LLC",
+  "familyLine": "Three apps for community association managers, built to work the same way.",
+  "apps": [
+    {
+      "key": "coifish",
+      "name": "Coifish",
+      "url": "https://coifish.com",
+      "live": true,
+      "description": "Certificates of insurance for every vendor at every association, current and on file."
+    },
+    {
+      "key": "reelminder",
+      "name": "ReelMinder",
+      "url": "https://reelminders.com",
+      "live": false,
+      "description": "Reminders for every association deadline, from insurance renewals to annual meeting notices."
+    },
+    {
+      "key": "packetskipper",
+      "name": "PacketSkipper",
+      "url": "https://packetskipper.com",
+      "live": false,
+      "description": "Agendas, board packets, and minutes, all in one place."
+    }
+  ]
+}
