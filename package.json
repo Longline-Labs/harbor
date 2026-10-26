@@ -1,6 +1,6 @@
 {
   "name": "@longline/harbor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Harbor: the design language shared by Coifish, ReelMinder and PacketSkipper. Tokens, component styles, marks, the family list, and the shared React components.",
   "private": true,
   "license": "UNLICENSED",
@@ -22,17 +22,15 @@
   },
   "peerDependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "lucide-react": "*"
+    "react-dom": "^19.0.0"
   },
   "scripts": {
-    "check": "tsc --noEmit -p tsconfig.json"
+    "check": "tsc --noEmit -p tsconfig.json && node scripts/check-tokens.mjs"
   },
   "devDependencies": {
     "typescript": "^5.6.0",
     "@types/react": "^19.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "lucide-react": "^0.460.0"
+    "react-dom": "^19.0.0"
   }
 }

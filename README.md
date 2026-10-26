@@ -17,7 +17,7 @@ What's here:
 ## How an app uses it
 
 ```
-npm install github:bperkocoifish/harbor#v0.1.0
+npm install github:Longline-Labs/harbor#v0.2.0
 ```
 
 Then in the app's root stylesheet:
@@ -31,7 +31,7 @@ Then in the app's root stylesheet:
 And in code:
 
 ```tsx
-import { Dock, Mark, StatusBadge, FamilySection, ThemeSwitch, apps } from "@longline/harbor";
+import { Dock, DockCorner, DockButton, Mark, StatusBadge, FamilySection, ThemeSwitch, themeChoiceScript, apps } from "@longline/harbor";
 ```
 
 Until the repo is on GitHub, apps can depend on the folder directly: `"@longline/harbor": "file:../harbor"`.

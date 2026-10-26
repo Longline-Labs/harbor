@@ -13,15 +13,15 @@
       "key": "reelminder",
       "name": "ReelMinder",
       "url": "https://reelminders.com",
-      "live": false,
+      "live": true,
       "description": "Reminders for every association deadline, from insurance renewals to annual meeting notices."
     },
     {
       "key": "packetskipper",
       "name": "PacketSkipper",
       "url": "https://packetskipper.com",
-      "live": false,
-      "description": "Agendas, board packets, and minutes, all in one place."
+      "live": true,
+      "description": "Board packets, minutes, action items, all in one place."
     }
   ]
 }

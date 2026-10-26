@@ -2,6 +2,7 @@ export { apps, appByKey, company, familyLine, type AppKey, type HarborApp } from
 export { MARKS, markDataUrl, type MarkName } from "./marks";
 export { Mark, markSvg } from "./Mark";
 export { StatusBadge, type Tone } from "./StatusBadge";
-export { ThemeSwitch, toggleTheme, toggleDock, themeBootScript } from "./ThemeSwitch";
+export { ThemeSwitch, toggleTheme } from "./ThemeSwitch";
+export { DEFAULT_THEME_KEY, themeChoiceScript, themeBootScript } from "./theme";
 export { FamilySection } from "./FamilySection";
-export { Dock, type DockProps, type DockUser } from "./Dock";
+export { Dock, DockCorner, DockButton } from "./Dock";

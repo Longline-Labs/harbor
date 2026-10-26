@@ -9,7 +9,7 @@ Rules that are not negotiable:
 - Surfaces separate with `--hairline` borders, never shadows. No gradients. No emoji in UI copy.
 - Fonts: Fraunces for display styles, Instrument Sans for UI, IBM Plex Mono for dates, amounts and IDs. Do not substitute Inter/Roboto/system fonts.
 - Spell the product names exactly: Coifish, ReelMinder, PacketSkipper (never lowercase, never COIFish). The company name comes from `company` in the package; never type it by hand.
-- Light and dark themes both ship; dark is `[data-theme="dark"]` on `<html>`, set before first paint with `themeBootScript` from the package.
+- Light and dark themes both ship. A page follows the device's setting (tokens.css does this) until the person uses the `ThemeSwitch`; the choice is then `[data-theme]` on `<html>`, applied before first paint with `themeChoiceScript()` from the package.
 - The marketing site follows `site.md` section for section; only the mark, accent, copy and mockup content differ from the other two sites.
 - When in doubt about a visual decision, follow the package's `HARBOR.md` over existing code in this repo.
 - Do not change the Harbor package during an unattended run. Note what it needs in the report instead.

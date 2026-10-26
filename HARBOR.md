@@ -28,7 +28,7 @@ Buttons name the result: "Send reminder", "Add vendor", "Build packet". Not "Sub
 - App accents come in pairs. The plain token (`koi`, `brass`, `kelp`) is a fill or stroke for the mark and small chrome, never under text. The `-deep` token is the same accent at reading contrast, for an in-app highlight that must be read: an overdue count in Coifish is `koi-deep`.
 - Status is `status-ok` / `status-warn` / `status-danger` on its own `-tint`, always with a word or icon. `status-ok` is a teal rather than a green so that ok and danger never differ by hue alone.
 
-Both themes ship in every app. Night watch is a true dark theme: the same tokens, re-valued, with accents lifted so they read on the hull.
+Both themes ship in every app. Night watch is a true dark theme: the same tokens, re-valued, with accents lifted so they read on the hull. A page follows the device's setting until the person uses the theme switch; from then on that browser remembers the choice. `tokens.css` does the following by itself, and a printed page always takes the light values.
 
 ## Type
 
@@ -36,7 +36,7 @@ Both themes ship in every app. Night watch is a true dark theme: the same tokens
 - Instrument Sans for everything else: `title`, `heading`, `body`, `body-sm`, `label`.
 - IBM Plex Mono at weight 500 for `numeral` and `numeral-lg`: any date, amount, ID or count that sits in a column or a stat.
 
-All three are Google Fonts; load them from fonts.googleapis.com. Do not substitute Inter, Roboto or a system sans for Instrument Sans — the warmth of the system depends on it.
+All three are Google Fonts. Serve them from the app's own site (Next.js's `next/font` does this, with the variables `--font-fraunces`, `--font-instrument` and `--font-plex-mono`, which `tokens.css` picks up), so opening a page asks Google for nothing and the privacy policy needs no font service. Do not substitute Inter, Roboto or a system sans for Instrument Sans — the warmth of the system depends on it.
 
 ## Spacing, radius, borders
 
@@ -58,7 +58,7 @@ Rules: the mark never rotates, never gets a shadow, never sits on a gradient. Mi
 
 ## The Dock
 
-The Dock is how the three apps reveal they are a family. It is a left rail in every app, 56px collapsed and 232px expanded, on `paper-raised` with a `hairline` right edge. Top: the company mark. Below it, one tile per app, each showing that app's mark. The tile for the app you are in gets a `sea-tint` ground and a 2px ring in that app's accent (`koi` in Coifish, `brass` in ReelMinder, `kelp` in PacketSkipper); the other tiles are links out, their marks at full color but no ring. Apps that are not live yet appear with their mark in `ink-faint` and a "Coming soon" `label`. Bottom of the Dock: the signed-in manager's avatar and the theme toggle. The Dock never scrolls and never holds in-app navigation; that belongs in the app bar and page.
+The Dock is how the three apps reveal they are a family, and app.coifish.com is its reference (the founder, October 25, 2026). The top-left corner of every app's bar belongs to the app in use: its mark at 38px in a 56px cell with a `hairline` right edge (`DockCorner`). Beneath it runs the rail (`Dock`): 56px wide on `paper-raised` with a `hairline` right edge, holding only the *other* two apps, marks at 26px, each a link to its site once it is live (`live` in `apps.json`), faded with "Coming soon" before. The app in use is never repeated in the rail, and nothing else sits there: sign in, the theme switch and the account belong to the app's own bar. On phones the corner and the rail are hidden; a menu button in the bar (`DockButton`) opens the other apps as a 232px panel from the left, titled "Other apps". The Dock never scrolls and never holds in-app navigation.
 
 ## App bar and pages
 
@@ -66,7 +66,7 @@ Each app's app bar sits to the right of the Dock: the app's wordmark at left (Fr
 
 ## Iconography
 
-Use Lucide icons at 20px with stroke 1.75 and round caps, which match the weight of the marks. Icons are `ink` beside text, `ink-muted` when decorative, and a status color only inside a status badge. No emoji, no filled icon sets, no illustrations in product screens; the only pictures in the UI are the four marks.
+Use Lucide icons at 20px with stroke 1.75 and round caps, which match the weight of the marks. The status badge carries Harbor's own three glyphs (a check, a clock, a cross, drawn on a 16 grid), so the package itself needs no icon library. Icons are `ink` beside text, `ink-muted` when decorative, and a status color only inside a status badge. No emoji, no filled icon sets, no illustrations in product screens; the only pictures in the UI are the four marks.
 
 ## Motion
 
@@ -75,10 +75,11 @@ Short and functional: 150ms ease-out for hover and focus, 200ms for a panel open
 
 ## Files in this folder
 
-- `tokens.css` — every color (light + dark via `data-theme`), spacing, radius, font stack and text style as CSS custom properties and classes. Import it once at the app root.
+- `tokens.css` — every color (light, and dark by `data-theme` or by the device), spacing, radius, font stack and text style as CSS custom properties and classes, with the light values again for print. Import it once at the app root. `npm run check` confirms it says what `tokens.json` says.
 - `tokens.json` — the same tokens as data, for Tailwind config or a theme object.
 - `logos/` — the four marks (Option 2, approved). `*-mark.svg` on light grounds, `*-mark-dark.svg` on dark grounds or a sea fill, `*-mark-mono.svg` for one-ink uses; `logos/LOGO-HANDOFF.md` has the integration notes.
 - `components.md` — how each shared component should look and behave.
 - `app-shell.md` — the app.coifish.com layout (Dock, app bar, tabs, page template) that every app follows.
 - `site.md` — the coifish.com page pattern, section by section, that every marketing site follows.
-- `apps.json` — the one list of the three apps, read by the Dock and the "From COIFISH LLC" section.
+- `harbor.css` — the shared components' styles, in the `components` cascade layer (Tailwind's own), so an app's utility classes can still adjust them.
+- `apps.json` — the one list of the three apps, read by the Dock and the "Apps for Community Association Managers" section.
