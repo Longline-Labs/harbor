@@ -4,20 +4,20 @@ coifish.com is the reference. reelminder.com (reelminders.com until the .com lan
 
 ## Site shell
 
-- **Header**: app mark at 32px (light file; dark file when the dark theme is on) + wordmark in Fraunces 500, 26px, spelled exactly as in prose. Right side: `How it works` (#how), `Pricing` (#pricing), `Help` (app.<domain>/help), `Sign in` (app.<domain>/sign-in), then one `sea` primary button. One hairline under the header. No accent in the header except inside the mark.
+- **Header**: as `components.md` → Public site header: the app's mark at 38px in its own 56px cell at the far left (`DockCorner`), above the rail of the other apps (`Dock`, `belowBar`); then the wordmark in Fraunces 500, spelled exactly as in prose (mark beside it only on phones). Right side: `How it works` (#how), `Pricing` (#pricing), `Help` (app.<domain>/help), the theme switch, `Sign in` (app.<domain>/sign-in), then one `sea` primary button, `Start free trial`. 64px tall and sticky on a computer. One hairline under the header. No accent in the header except inside the mark.
 - **Theme**: paper by day, hull by night, `data-theme` toggle in the header's right group like coifish.com.
-- **Container**: max 1120px, 24px gutter. Sections sit `space-7` (48px) apart on desktop, `space-6` on phones.
+- **Container**: max 1100px (`.site-container`), 24px gutter (16px on phones). Sections sit 40px apart, the later ones on a hairline rule, as on coifish.com.
 - **Footer**: hairline above, "© 2026 COIFISH LLC" at left, then `Help`, `Terms of Service`, `Privacy Policy`, `Sign in`. The company ring-and-dot mark may sit before the copyright at 20px.
 
 ## Section order (do not reorder, do not skip)
 
-1. **Hero** — kicker in `label` style in the app's `-deep` accent, headline in `display-xl` (52/56 on desktop), one body paragraph in `ink-muted`, primary button `Start your 30-day free trial`, note `No credit card required` beneath. Coifish's kicker is "Stop fishing for COIs."; each app gets one of its own in the same register (a wry four-to-six-word line, no exclamation mark).
+1. **Hero** — in two columns with the product mockup (2). A kicker in `sea`, weight 600, about 17px (never the app's accent, which is only for the mark, the active Dock tile and the app-bar underline), the headline in Fraunces (34px on phones, 44px on a computer), one body paragraph in `ink-muted`, the primary button `Start your 30-day free trial`, and `No credit card required.` beside it. Coifish's kicker is "Stop fishing for COIs."; each app gets one of its own in the same register (a wry four-to-six-word line, no exclamation mark).
 2. **Product mockup** — a `paper-raised` card with a hairline, captioned `Example with made-up <nouns>` and labelled `app.<domain>`. It shows the app's main screen: tabs across the top, summary counts, then the main table with status badges. Build it in HTML with the real components; never a screenshot.
 3. **Timeline / at-a-glance view** — the one visual that shows the app's core promise over time. Coifish: expirations on a date axis. The other two define theirs below.
 4. **How it works** (#how) — exactly three numbered steps, each a short title and two sentences.
 5. **Six checkmarks** — no heading; six bold lead-ins with one sentence each. Mirror Coifish's set where it applies ("Your data stays yours" and "Quiet unless it matters" are family promises and appear on every site).
 6. **Pricing** (#pricing) — headline `Pricing`, `From $N a year`, one sentence on what the price depends on, the calculator (`Your price` with a slider), the tier table, a `Pricing questions` FAQ (trial, read-only after trial, add/remove, switching plans, cancellation, payment methods), and the same trial button. Until an app's pricing is decided, keep the block and use `[YOUR PRICE]` placeholders; do not invent numbers.
-7. **Other questions** — four FAQs.
+7. **Other questions** — three FAQs, as on coifish.com, the first answering whether the app is only for management companies.
 8. **Closing CTA** — `Questions? Start your free trial` linked, `(no credit card needed)`, and the line about asking from inside the account.
 9. **Apps for Community Association Managers** — three cards, Coifish, ReelMinder, PacketSkipper, each with its mark; the current site's card says `You are here`, unreleased ones say `Coming soon`, released ones link to their site.
 10. **Footer** — as above.
