@@ -13,6 +13,7 @@ Brought up to app.coifish.com, the family's reference (the founder: "coifish is 
 - **apps.json**: ReelMinder and PacketSkipper are `live` (their sites are up and linked, as Coifish shows them), and PacketSkipper's line is the founder's of October 25: "Board packets, minutes, action items, all in one place." `live` now means "the site is up"; sign-ups are each app's own setting.
 - **No icon library**: `lucide-react` is no longer a peer dependency.
 - Docs: `HARBOR.md` (the Dock, fonts served from the app's own site, the badge's glyphs), `components.md`, `app-shell.md`, `README.md`, `CLAUDE.md.snippet`, and `docs/MIGRATION.md` (lessons from Coifish's move, and 0.1 to 0.2).
+- `site.md`: the page as coifish.com has it (the header, 1100px, 40px between sections, the kicker in sea, the 44px headline, three other questions).
 
 ## 0.1.0 — 2026-10-25
 
