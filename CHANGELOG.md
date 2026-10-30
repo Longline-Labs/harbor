@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased (branch longline-labs-llc) — 2026-10-30
+
+- The company is **LONGLINE LABS LLC**: `apps.json`'s `company` (the Dock's label and the footers read it), and
+  the docs. Product names, routes and historical documents are unchanged.
+- The company mark is the **Linked LL** from the approved brand package (`logos/longline-labs-mark*.svg`),
+  drawn by `Mark name="company"` and in the Dock; the ring-and-dot files stay for the record.
+
 ## 0.1.0 — 2026-10-25
 
 - First version as a package. Merged the three per-app `harbor/` folders. PacketSkipper's copy was the newest and most complete and is the base; the docs now live in one place.

@@ -1,4 +1,4 @@
-# The COIFISH LLC website pattern
+# The Longline Labs website pattern
 
 coifish.com is the reference. reelminder.com (reelminders.com until the .com lands) and packetskipper.com use the same page, section for section, with the app's own copy, accent and mark. Someone landing on any of the three should recognise the other two instantly. The design tokens, type and components come from `tokens.css`, `HARBOR.md` and `components.md`; this file is the page itself.
 
@@ -7,7 +7,7 @@ coifish.com is the reference. reelminder.com (reelminders.com until the .com lan
 - **Header**: app mark at 32px (light file; dark file when the dark theme is on) + wordmark in Fraunces 500, 26px, spelled exactly as in prose. Right side: `How it works` (#how), `Pricing` (#pricing), `Help` (app.<domain>/help), `Sign in` (app.<domain>/sign-in), then one `sea` primary button. One hairline under the header. No accent in the header except inside the mark.
 - **Theme**: paper by day, hull by night, `data-theme` toggle in the header's right group like coifish.com.
 - **Container**: max 1120px, 24px gutter. Sections sit `space-7` (48px) apart on desktop, `space-6` on phones.
-- **Footer**: hairline above, "© 2026 COIFISH LLC" at left, then `Help`, `Terms of Service`, `Privacy Policy`, `Sign in`. The company ring-and-dot mark may sit before the copyright at 20px.
+- **Footer**: hairline above, "© 2026 LONGLINE LABS LLC" at left, then `Help`, `Terms of Service`, `Privacy Policy`, `Sign in`. The company mark (the Linked LL) mark may sit before the copyright at 20px.
 
 ## Section order (do not reorder, do not skip)
 

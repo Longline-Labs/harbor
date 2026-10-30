@@ -42,4 +42,4 @@ Until the repo is on GitHub, apps can depend on the folder directly: `"@longline
 2. Bump the version in `package.json` and tag it (`git tag v0.2.0`).
 3. In each app, update the dependency to the new tag and run its tests. Apps move at their own pace; a pinned version never changes under them.
 
-The company name appears in `HARBOR.md`, `apps.json` and the footer rules. When the LLC rename to Longline Labs is approved by the state, change it here and bump the version; all three apps pick it up on their next update.
+The company is Longline Labs LLC (the state approved the Articles of Amendment in October 2026). Its name is in `apps.json` (`company`, read by the Dock and the footers) and in the docs here; its mark is the Linked LL (`logos/longline-labs-mark*.svg`, drawn by `Mark name="company"`). The three apps pick both up on their next update of the package.

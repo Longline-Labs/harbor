@@ -1,6 +1,6 @@
 # Harbor — the design language shared by Coifish, ReelMinder and PacketSkipper
 
-Harbor is the shared design language for the three COIFISH LLC apps built for community association managers: **Coifish** (certificates of insurance), **ReelMinder** (reminders) and **PacketSkipper** (board packets, minutes, action items). One system, three accents. A manager who opens any of the three should feel they are in the same office, at a different desk.
+Harbor is the shared design language for the three Longline Labs LLC apps built for community association managers: **Coifish** (certificates of insurance), **ReelMinder** (reminders) and **PacketSkipper** (board packets, minutes, action items). One system, three accents. A manager who opens any of the three should feel they are in the same office, at a different desk.
 
 ## The idea
 
@@ -9,14 +9,14 @@ The three names happen to share a thread — a fish, a reel, a skipper — and t
 Three principles decide most questions:
 
 1. **Paper, not glass.** Surfaces are warm and matte. Separate them with `hairline`, never with shadows or gradients. `shadow-float` exists only for menus and dialogs.
-2. **The company owns the chrome, the app owns one color.** Everything structural — buttons, links, navigation, focus rings, the ring of every logo — is `sea`. Each app gets exactly one accent (`koi`, `brass`, `kelp`) and spends it on its mark, its active Dock tile, and a single underline in its app bar. If an accent is showing up in body UI, something is wrong.
+2. **The company owns the chrome, the app owns one color.** Everything structural — buttons, links, navigation, focus rings, the structural strokes of every logo — is `sea`. Each app gets exactly one accent (`koi`, `brass`, `kelp`) and spends it on its mark, its active Dock tile, and a single underline in its app bar. If an accent is showing up in body UI, something is wrong.
 3. **Figures are data.** Dates, dollar limits, policy numbers and counts are set in `numeral` (mono, tabular) so columns line up and a manager can scan a list of forty vendors without reading every row.
 
 ## Voice
 
 Write like a competent colleague leaving a note, not like a product. Plain sentences, present tense, second person. Name the thing: "Bayview Landscaping's general liability expires Nov 30" beats "A certificate is expiring soon." Numbers go first when the number is the point: "12 certificates expire this month." Never use exclamation marks in the UI. No emoji anywhere in product copy. Sentence case for every heading, button and label; `label` style is uppercased by CSS, never typed in caps.
 
-Product names are spelled one way everywhere, in prose and in the wordmarks alike: **Coifish**, **ReelMinder**, **PacketSkipper**. Never lowercase them, never write COIFish. The company is **COIFISH LLC**, always in caps. "COI" inside Coifish is the certificate-of-insurance pun; let product copy use the term naturally ("every COI, current") rather than forcing it with capitals.
+Product names are spelled one way everywhere, in prose and in the wordmarks alike: **Coifish**, **ReelMinder**, **PacketSkipper**. Never lowercase them, never write COIFish. The company is **LONGLINE LABS LLC** in legal lines (the copyright, the Terms), always in caps there, and **Longline Labs** in prose. It was COIFISH LLC until the state approved the Articles of Amendment in October 2026; historical documents keep the old name. "COI" inside Coifish is the certificate-of-insurance pun; let product copy use the term naturally ("every COI, current") rather than forcing it with capitals.
 
 Buttons name the result: "Send reminder", "Add vendor", "Build packet". Not "Submit", "OK", "Go".
 
@@ -49,7 +49,7 @@ All three are Google Fonts; load them from fonts.googleapis.com. Do not substitu
 
 All four marks share one construction: a 48-unit grid, drawn as outline strokes (about 3.4, round caps and joins), in two inks. The company mark is a ring; each app mark is its figure alone, with no ring. In an app mark, the part that names the app is in its accent and the supporting strokes are in `sea` by day and paper by night. The sea strokes are the family; the accent is the app.
 
-- `coifish-llc-mark` — the ring (r 21, stroke 3) with a single dot. The company.
+- `longline-labs-mark` — the Linked LL (Option A, approved October 30, 2026): two L strokes sharing a baseline that turns up at the right. The company, one ink: `sea` by day, paper by night. The old ring-and-dot (`coifish-llc-mark`) is retired and no longer drawn.
 - `coifish-mark` — a koi: the body in `koi`, the tail and eye in `sea`.
 - `reelminder-mark` — a reel: the spool and hub in `brass`, the crank and the clock-like stem in `sea`.
 - `packetskipper-mark` — a captain's cap: the crown and badge dot in `kelp`, the band and brim in `sea`.
@@ -81,4 +81,4 @@ Short and functional: 150ms ease-out for hover and focus, 200ms for a panel open
 - `components.md` — how each shared component should look and behave.
 - `app-shell.md` — the app.coifish.com layout (Dock, app bar, tabs, page template) that every app follows.
 - `site.md` — the coifish.com page pattern, section by section, that every marketing site follows.
-- `apps.json` — the one list of the three apps, read by the Dock and the "From COIFISH LLC" section.
+- `apps.json` — the one list of the three apps, read by the Dock and the "Apps for Community Association Managers" section.
