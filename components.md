@@ -55,7 +55,7 @@ Don't invent new tones per app; map the app's states onto these four.
 
 ## The family list (apps.json)
 
-`apps.json` is the one list of the three apps: name, web address, whether it's live, and a one-line description. The Dock and the "From COIFISH LLC" section both read it, so all three apps always agree. When an app launches, set its `live` to true here and copy the `harbor/` folder to the other two apps.
+`apps.json` is the one list of the three apps: name, web address, whether it's live, and a one-line description. The Dock and the "From Longline Labs" section both read it, so all three apps always agree. When an app launches, set its `live` to true here and copy the `harbor/` folder to the other two apps.
 
 ## Public site header
 
@@ -73,11 +73,11 @@ The public pages' version of the Dock: a 56px column on `paper-raised` under the
 
 ## Apps for Community Association Managers (family section)
 
-The last section of every public home page, above the footer, on a `hairline` rule. Title "Apps for Community Association Managers" in `display-md`, as on coifish.com (it was "From COIFISH LLC" with `apps.json`'s `familyLine` beneath; coifish.com dropped the line). Then three cards in a row (stacked on phones), one per app in `apps.json` order: the mark (32px) and the name in Fraunces 500, the description in `ink-muted`, and a `label` at the bottom: "You are here" on the current app, "Coming soon" when not live, otherwise a link "Visit coifish.com" (the app's address). Cards are standard Harbor cards; no accent colors.
+The last section of every public home page, above the footer, on a `hairline` rule. Title "Apps for Community Association Managers" in `display-md`, as on coifish.com (it was "From Longline Labs" with `apps.json`'s `familyLine` beneath; coifish.com dropped the line). Then three cards in a row (stacked on phones), one per app in `apps.json` order: the mark (32px) and the name in Fraunces 500, the description in `ink-muted`, and a `label` at the bottom: "You are here" on the current app, "Coming soon" when not live, otherwise a link "Visit coifish.com" (the app's address). Cards are standard Harbor cards; no accent colors.
 
 ## Public footer
 
-One row on a `hairline` rule: "© 2026 COIFISH LLC", `Help`, `Terms of Service`, `Privacy Policy`, and a `Sign in` secondary button at the far right.
+One row on a `hairline` rule: "© 2026 LONGLINE LABS LLC", `Help`, `Terms of Service`, `Privacy Policy`, and a `Sign in` secondary button at the far right.
 
 ## App bar (signed in)
 
