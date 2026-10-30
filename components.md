@@ -76,11 +76,11 @@ The public pages' version of the Dock: a 56px column on `paper-raised` under the
 
 ## Apps for Community Association Managers (family section)
 
-The last section of every public home page, above the footer, on a `hairline` rule. Title "Apps for Community Association Managers" in `display-md`, as on coifish.com (it was "From COIFISH LLC" with `apps.json`'s `familyLine` beneath; coifish.com dropped the line). Then three cards in a row (stacked on phones), one per app in `apps.json` order: the mark (36px) and the name in Fraunces 500, the description in `ink-muted`, and a `label` at the bottom: "You are here" on the current app, "Coming soon" when not live, otherwise a link "Visit coifish.com" (the app's address, in the same tab). Cards are standard Harbor cards; no accent colors. `FamilySection` draws it, given `current`.
+The last section of every public home page, above the footer, on a `hairline` rule. Title "Apps for Community Association Managers" in `display-md`, as on coifish.com (it was "From LONGLINE LABS LLC" with `apps.json`'s `familyLine` beneath; coifish.com dropped the line). Then three cards in a row (stacked on phones), one per app in `apps.json` order: the mark (36px) and the name in Fraunces 500, the description in `ink-muted`, and a `label` at the bottom: "You are here" on the current app, "Coming soon" when not live, otherwise a link "Visit coifish.com" (the app's address, in the same tab). Cards are standard Harbor cards; no accent colors. `FamilySection` draws it, given `current`.
 
 ## Public footer
 
-One row on a `hairline` rule: "© 2026 COIFISH LLC", `Help`, `Terms of Service`, `Privacy Policy`, and a `Sign in` secondary button at the far right.
+One row on a `hairline` rule: "© 2026 LONGLINE LABS LLC", `Help`, `Terms of Service`, `Privacy Policy`, and a `Sign in` secondary button at the far right.
 
 ## App bar (signed in)
 

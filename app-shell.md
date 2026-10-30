@@ -1,4 +1,4 @@
-# The app shell every COIFISH LLC app shares
+# The app shell every Longline Labs app shares
 
 app.coifish.com is the reference. ReelMinder and PacketSkipper reproduce the same shell so a manager who uses two of them never has to relearn where things are. Components and tokens: `components.md`, `tokens.css`.
 
@@ -19,4 +19,4 @@ Tabs under the app bar, as app.coifish.com does (Vendors · Review · Certificat
 - Dates ISO, amounts right-aligned, IDs in `numeral`.
 - Empty states: `display-md` headline, one `body` sentence, one primary button. No illustrations.
 - Sign-in, help and settings pages are identical across the apps apart from the mark and wordmark.
-- Emails the apps send use the same template: mark + wordmark at top, `sea` button, hairline footer with `COIFISH LLC` and the app's address; dark-file mark on the sea button if the mark appears on it.
+- Emails the apps send use the same template: mark + wordmark at top, `sea` button, hairline footer with `LONGLINE LABS LLC` and the app's address; dark-file mark on the sea button if the mark appears on it.
