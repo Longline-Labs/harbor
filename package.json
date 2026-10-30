@@ -1,6 +1,6 @@
 {
   "name": "@longline/harbor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Harbor: the design language shared by Coifish, ReelMinder and PacketSkipper. Tokens, component styles, marks, the family list, and the shared React components.",
   "private": true,
   "license": "UNLICENSED",

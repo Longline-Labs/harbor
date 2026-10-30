@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (branch longline-labs-llc) — 2026-10-30
+## 0.1.1 — 2026-10-30
 
 - The company is **LONGLINE LABS LLC**: `apps.json`'s `company` (the Dock's label and the footers read it), and
   the docs. Product names, routes and historical documents are unchanged.
