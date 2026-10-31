@@ -1,4 +1,4 @@
-/* Harbor component styles, shared by Coifish, ReelMinder and PacketSkipper.
+/* Harbor component styles, shared by the Longline Labs apps.
    Import after tokens.css. Extracted from PacketSkipper's globals.css in 0.1.0;
    edit here, never in an app.
    Everything sits in the "components" cascade layer (Tailwind's own), so an app's utility classes can still adjust a

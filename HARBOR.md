@@ -1,15 +1,15 @@
-# Harbor — the design language shared by Coifish, ReelMinder and PacketSkipper
+# Harbor — the design language shared by the Longline Labs apps
 
-Harbor is the shared design language for the three Longline Labs LLC apps built for community association managers: **Coifish** (certificates of insurance), **ReelMinder** (reminders) and **PacketSkipper** (board packets, minutes, action items). One system, three accents. A manager who opens any of the three should feel they are in the same office, at a different desk.
+Harbor is the shared design language for the six Longline Labs LLC apps built for community association managers: **Coifish** (certificates of insurance), **ReelMinder** (reminders), **PacketSkipper** (board packets, minutes, action items), **BallastBook** (annual budgets), **ShipShape** (file naming) and **Aboveboard** (public document posting). One system, six accents. A manager who opens any of them should feel they are in the same office, at a different desk.
 
 ## The idea
 
-The three names happen to share a thread — a fish, a reel, a skipper — and the system acknowledges it with a light touch: a deep sea blue for everything the company owns and a plain figure in each mark, nothing more. No waves, ropes or anchors in the UI. What carries the family is a warm paper ground, one honest accent per app, serif titles with tabular figures underneath, and hairlines instead of drop shadows.
+The names share a thread — a fish, a reel, a skipper, ballast, a ship, a deck — and the system acknowledges it with a light touch: a deep sea blue for everything the company owns and a plain figure in each mark, nothing more. No waves, ropes or anchors in the UI. What carries the family is a warm paper ground, one honest accent per app, serif titles with tabular figures underneath, and hairlines instead of drop shadows.
 
 Three principles decide most questions:
 
 1. **Paper, not glass.** Surfaces are warm and matte. Separate them with `hairline`, never with shadows or gradients. `shadow-float` exists only for menus and dialogs.
-2. **The company owns the chrome, the app owns one color.** Everything structural — buttons, links, navigation, focus rings, the structural strokes of every logo — is `sea`. Each app gets exactly one accent (`koi`, `brass`, `kelp`) and spends it on its mark, its active Dock tile, and a single underline in its app bar. If an accent is showing up in body UI, something is wrong.
+2. **The company owns the chrome, the app owns one color.** Everything structural — buttons, links, navigation, focus rings, the structural strokes of every logo — is `sea`. Each app gets exactly one accent (`koi`, `brass`, `kelp`, `cobalt`, `plum`, `azure`) and spends it on its mark, its active Dock tile, and a single underline in its app bar. If an accent is showing up in body UI, something is wrong.
 3. **Figures are data.** Dates, dollar limits, policy numbers and counts are set in `numeral` (mono, tabular) so columns line up and a manager can scan a list of forty vendors without reading every row.
 
 ## Voice
@@ -25,7 +25,7 @@ Buttons name the result: "Send reminder", "Add vendor", "Build packet". Not "Sub
 - Ground everything on `paper`; raise cards and the Dock to `paper-raised`; sink inputs and code to `paper-sunken`.
 - Text is `ink`; secondary text is `ink-muted`; `ink-faint` is for placeholders and disabled only, because it is below 4.5:1 on purpose.
 - `sea` is the only color for primary buttons (with `on-sea` text), links, active navigation and the `focus` ring. `sea-tint` grounds selected rows and the active Dock tile.
-- App accents come in pairs. The plain token (`koi`, `brass`, `kelp`) is a fill or stroke for the mark and small chrome, never under text. The `-deep` token is the same accent at reading contrast, for an in-app highlight that must be read: an overdue count in Coifish is `koi-deep`.
+- App accents come in pairs. The plain token (`koi`, `brass`, `kelp`, `cobalt`, `plum`, `azure`) is a fill or stroke for the mark and small chrome, never under text. The `-deep` token is the same accent at reading contrast, for an in-app highlight that must be read: an overdue count in Coifish is `koi-deep`.
 - Status is `status-ok` / `status-warn` / `status-danger` on its own `-tint`, always with a word or icon. `status-ok` is a teal rather than a green so that ok and danger never differ by hue alone.
 
 Both themes ship in every app. Night watch is a true dark theme: the same tokens, re-valued, with accents lifted so they read on the hull. A page follows the device's setting until the person uses the theme switch; from then on that browser remembers the choice. `tokens.css` does the following by itself, and a printed page always takes the light values.
@@ -47,18 +47,23 @@ All three are Google Fonts. Serve them from the app's own site (Next.js's `next/
 
 ## Marks and logos
 
-All four marks share one construction: a 48-unit grid, drawn as outline strokes (about 3.4, round caps and joins), in two inks. The company mark is a ring; each app mark is its figure alone, with no ring. In an app mark, the part that names the app is in its accent and the supporting strokes are in `sea` by day and paper by night. The sea strokes are the family; the accent is the app.
+All seven marks share one construction: a 48-unit grid, drawn as outline strokes (about 3.4, round caps and joins), in two inks. The company mark is a ring; each app mark is its figure alone, with no ring. In an app mark, the part that names the app is in its accent and the supporting strokes are in `sea` by day and paper by night. The sea strokes are the family; the accent is the app.
 
 - `longline-labs-mark` — the Linked LL (Option A, approved October 30, 2026): two L strokes sharing a baseline that turns up at the right. The company, one ink: `sea` by day, paper by night. The old ring-and-dot (`coifish-llc-mark`) is retired and no longer drawn.
 - `coifish-mark` — a koi: the body in `koi`, the tail and eye in `sea`.
 - `reelminder-mark` — a reel: the spool and hub in `brass`, the crank and the clock-like stem in `sea`.
 - `packetskipper-mark` — a captain's cap: the crown and badge dot in `kelp`, the band and brim in `sea`.
+- `ballastbook-mark` — a book and keel: the open book in `cobalt`, the keel beneath in `sea`.
+- `shipshapefiles-mark` — a name tag: the tag and its two lines in `plum`, the string and its knot in `sea`. The product is **ShipShape**; the files and the key are named after its domain, shipshapefiles.com.
+- `aboveboard-mark` — a document above a board: the page in `azure`, the deck line beneath in `sea`. No mast, no hull: the approved design is the page and the line.
+
+The three newer marks take their night accent from the brand package's palette (`cobalt` #8aa0e0, `plum` #c993c2, `azure` #79b9d8); the first three keep their day accent in the dark files, as approved earlier.
 
 Rules: the mark never rotates, never gets a shadow, never sits on a gradient. Minimum size 20px. On `paper` use the standard file; on a `sea` or dark ground use the `-dark` file (paper where the standard file has sea); for one-ink uses (favicons in a tab, stamps, embroidery) use the `-mono` file. The wordmark is the app name in Fraunces 500, spelled exactly as in prose, set to the right of the mark at the mark's cap height, with `space-2` between; "LONGLINE LABS LLC" in the company lockup is `label` style in `ink-muted` beneath or beside the ring. Never recolor an app's figure in another app's accent.
 
 ## The Dock
 
-The Dock is how the three apps reveal they are a family, and app.coifish.com is its reference (the founder, October 25, 2026). The top-left corner of every app's bar belongs to the app in use: its mark at 38px in a 56px cell with a `hairline` right edge (`DockCorner`). Beneath it runs the rail (`Dock`): 56px wide on `paper-raised` with a `hairline` right edge, holding only the *other* two apps, marks at 26px, each a link to its site once it is live (`live` in `apps.json`), faded with "Coming soon" before. The app in use is never repeated in the rail, and nothing else sits there: sign in, the theme switch and the account belong to the app's own bar. On phones the corner and the rail are hidden; a menu button in the bar (`DockButton`) opens the other apps as a 232px panel from the left, titled "Other apps". The Dock never scrolls and never holds in-app navigation.
+The Dock is how the apps reveal they are a family, and app.coifish.com is its reference (the founder, October 25, 2026). The top-left corner of every app's bar belongs to the app in use: its mark at 38px in a 56px cell with a `hairline` right edge (`DockCorner`). Beneath it runs the rail (`Dock`): 56px wide on `paper-raised` with a `hairline` right edge, holding only the *other* apps in `apps.json` order, marks at 26px, each a link to its site once it is live (`live` in `apps.json`), faded with "Coming soon" before. The app in use is never repeated in the rail, and nothing else sits there: sign in, the theme switch and the account belong to the app's own bar. On phones the corner and the rail are hidden; a menu button in the bar (`DockButton`) opens the other apps as a 232px panel from the left, titled "Other apps". The Dock never scrolls and never holds in-app navigation.
 
 ## App bar and pages
 
@@ -66,7 +71,7 @@ Each app's app bar sits to the right of the Dock: the app's wordmark at left (Fr
 
 ## Iconography
 
-Use Lucide icons at 20px with stroke 1.75 and round caps, which match the weight of the marks. The status badge carries Harbor's own three glyphs (a check, a clock, a cross, drawn on a 16 grid), so the package itself needs no icon library. Icons are `ink` beside text, `ink-muted` when decorative, and a status color only inside a status badge. No emoji, no filled icon sets, no illustrations in product screens; the only pictures in the UI are the four marks.
+Use Lucide icons at 20px with stroke 1.75 and round caps, which match the weight of the marks. The status badge carries Harbor's own three glyphs (a check, a clock, a cross, drawn on a 16 grid), so the package itself needs no icon library. Icons are `ink` beside text, `ink-muted` when decorative, and a status color only inside a status badge. No emoji, no filled icon sets, no illustrations in product screens; the only pictures in the UI are the marks.
 
 ## Motion
 
@@ -82,4 +87,4 @@ Short and functional: 150ms ease-out for hover and focus, 200ms for a panel open
 - `app-shell.md` — the app.coifish.com layout (Dock, app bar, tabs, page template) that every app follows.
 - `site.md` — the coifish.com page pattern, section by section, that every marketing site follows.
 - `harbor.css` — the shared components' styles, in the `components` cascade layer (Tailwind's own), so an app's utility classes can still adjust them.
-- `apps.json` — the one list of the three apps, read by the Dock and the "Apps for Community Association Managers" section.
+- `apps.json` — the one list of the six apps, read by the Dock and the "Apps for Community Association Managers" section.

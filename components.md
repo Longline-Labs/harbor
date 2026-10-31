@@ -1,10 +1,10 @@
 # Harbor components
 
-These six are shared by all three apps and must look identical in each. Build them once per codebase from these specs and `tokens.css`.
+These six are shared by all the apps and must look identical in each. Build them once per codebase from these specs and `tokens.css`.
 
 ## Button
 
-Buttons are the same in all three apps: `sea` primary, hairline secondary, quiet for tertiary, and a danger outline for destructive actions.
+Buttons are the same in every app: `sea` primary, hairline secondary, quiet for tertiary, and a danger outline for destructive actions.
 
 Provide the label as children (a verb naming the result: "Send reminder", "Build packet"), an optional leading Lucide icon at 16px, and `variant` (primary | secondary | quiet | danger), `size` (md 36px | sm 28px) and `disabled`.
 
@@ -20,7 +20,7 @@ Stat cards take a `label`, a `value` in `numeral-lg`/`display-xl`, and a `meta` 
 
 ## DataTable
 
-Lists of vendors, reminders and action items are the heart of all three apps, so they look identical everywhere.
+Lists of vendors, reminders and action items are the heart of the apps, so they look identical everywhere.
 
 Provide `columns` (label, key, align, type where type numeral sets `numeral` style and right-aligns amounts) and `rows`. Header row is `label` style on a `hairline-strong` rule; body rows separate with `hairline`; hover grounds a row on `paper-sunken`; selection grounds it on `sea-tint`.
 
@@ -28,10 +28,10 @@ Dates are ISO (2026-11-06) in `numeral`; amounts right-align. Status is always a
 
 ## Dock
 
-The Dock makes three apps feel like one company. It appears, identically, in Coifish, ReelMinder and PacketSkipper, in three pieces, each given `current` (which app this is):
+The Dock makes six apps feel like one company. It appears, identically, in every app, in three pieces, each given `current` (which app this is):
 
 - `DockCorner` (`href`, default "/"): this app's mark at 38px in a 56px cell at the far left of the bar, with a `hairline` right edge, leading home. Hidden on phones.
-- `Dock` (`belowBar` for a 64px bar that stays at the top, as on the public pages): the 56px rail under the corner, on `paper-raised`, listing the other two apps from `apps.json`, marks at 26px. A live app links to its site; one that isn't shows its mark faded (40%, greyscale) and no link. Hidden on phones and in print.
+- `Dock` (`belowBar` for a 64px bar that stays at the top, as on the public pages): the 56px rail under the corner, on `paper-raised`, listing the other apps from `apps.json`, in its order, marks at 26px. A live app links to its site; one that isn't shows its mark faded (40%, greyscale) and no link. Hidden on phones and in print.
 - `DockButton`: on phones only, a menu button in the bar that opens the same list as a 232px panel from the left, titled "Other apps", with "Coming soon" under an app that isn't live; Escape or a tap outside closes it.
 
 The Dock holds no in-app navigation, no account and no theme switch, and never scrolls.
@@ -58,7 +58,7 @@ The light and dark switch in the bar of every app and site: a 44 by 24 track on 
 
 ## The family list (apps.json)
 
-`apps.json` is the one list of the three apps: name, web address, whether its site is up (`live`), and a one-line description. The Dock and the family section both read it, so all three apps always agree. When an app's site goes up, set its `live` to true here, bump the version, and update the other two apps. Whether an app takes sign-ups is its own setting, not this one.
+`apps.json` is the one list of the six apps, in longline order: name, web address, whether its site is up (`live`), and a one-line description. The Dock and the family section both read it, so every app always agrees. When an app's site goes up, set its `live` to true here, bump the version, and update the other apps. Whether an app takes sign-ups is its own setting, not this one.
 
 ## Public site header
 
@@ -66,7 +66,7 @@ As on coifish.com: a sticky bar on `paper-raised`. At far left, the app's mark (
 
 ## Public rail
 
-The public pages' version of the Dock: a 56px column on `paper-raised` under the header's mark cell, with a `hairline` right edge, sticky beside the page. It lists the other two apps from `apps.json`, mark only (26px), each a link to its site; an app that isn't live shows its faded mark and no link. On phones the menu button opens the same list as a drawer from the left, titled "Other apps", with "Coming soon" beside an app that isn't live.
+The public pages' version of the Dock: a 56px column on `paper-raised` under the header's mark cell, with a `hairline` right edge, sticky beside the page. It lists the other apps from `apps.json`, mark only (26px), each a link to its site; an app that isn't live shows its faded mark and no link. On phones the menu button opens the same list as a drawer from the left, titled "Other apps", with "Coming soon" beside an app that isn't live.
 
 ## Public home page
 
@@ -76,7 +76,7 @@ The public pages' version of the Dock: a 56px column on `paper-raised` under the
 
 ## Apps for Community Association Managers (family section)
 
-The last section of every public home page, above the footer, on a `hairline` rule. Title "Apps for Community Association Managers" in `display-md`, as on coifish.com (it was "From LONGLINE LABS LLC" with `apps.json`'s `familyLine` beneath; coifish.com dropped the line). Then three cards in a row (stacked on phones), one per app in `apps.json` order: the mark (36px) and the name in Fraunces 500, the description in `ink-muted`, and a `label` at the bottom: "You are here" on the current app, "Coming soon" when not live, otherwise a link "Visit coifish.com" (the app's address, in the same tab). Cards are standard Harbor cards; no accent colors. `FamilySection` draws it, given `current`.
+The last section of every public home page, above the footer, on a `hairline` rule. Title "Apps for Community Association Managers" in `display-md`, as on coifish.com (it was "From LONGLINE LABS LLC" with `apps.json`'s `familyLine` beneath; coifish.com dropped the line). Then one card per app in `apps.json` order (three to a row, stacked on phones): the mark (36px) and the name in Fraunces 500, the description in `ink-muted`, and a `label` at the bottom: "You are here" on the current app, "Coming soon" when not live, otherwise a link "Visit coifish.com" (the app's address, in the same tab). Cards are standard Harbor cards; no accent colors. `FamilySection` draws it, given `current`.
 
 ## Public footer
 

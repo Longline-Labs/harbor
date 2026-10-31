@@ -1,6 +1,7 @@
 import family from "../apps.json";
 
-export type AppKey = "coifish" | "reelminder" | "packetskipper";
+/** The six apps, in longline order. ShipShape's key is its domain, shipshapefiles, as its mark files are named. */
+export type AppKey = "coifish" | "reelminder" | "packetskipper" | "ballastbook" | "shipshapefiles" | "aboveboard";
 
 export interface HarborApp {
   key: AppKey;
@@ -19,7 +20,7 @@ export interface HarborApp {
 export const company: string = family.company;
 /** One line under the family heading, where a site uses it. */
 export const familyLine: string = family.familyLine;
-/** The three apps, in the fixed order the Dock and the family section show them. */
+/** The six apps, in the fixed order the Dock and the family section show them. */
 export const apps: readonly HarborApp[] = family.apps as HarborApp[];
 
 export function appByKey(key: AppKey): HarborApp {

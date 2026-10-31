@@ -1,6 +1,6 @@
 # The Longline Labs website pattern
 
-coifish.com is the reference. reelminder.com (reelminders.com until the .com lands) and packetskipper.com use the same page, section for section, with the app's own copy, accent and mark. Someone landing on any of the three should recognise the other two instantly. The design tokens, type and components come from `tokens.css`, `HARBOR.md` and `components.md`; this file is the page itself.
+coifish.com is the reference. reelminder.com (reelminders.com until the .com lands) and packetskipper.com use the same page, section for section, with the app's own copy, accent and mark. Someone landing on any of the sites should recognise the others instantly (the website shell, `@longline/web`, now carries this page frame for all six). The design tokens, type and components come from `tokens.css`, `HARBOR.md` and `components.md`; this file is the page itself.
 
 ## Site shell
 
@@ -19,7 +19,7 @@ coifish.com is the reference. reelminder.com (reelminders.com until the .com lan
 6. **Pricing** (#pricing) — headline `Pricing`, `From $N a year`, one sentence on what the price depends on, the calculator (`Your price` with a slider), the tier table, a `Pricing questions` FAQ (trial, read-only after trial, add/remove, switching plans, cancellation, payment methods), and the same trial button. Until an app's pricing is decided, keep the block and use `[YOUR PRICE]` placeholders; do not invent numbers.
 7. **Other questions** — three FAQs, as on coifish.com, the first answering whether the app is only for management companies.
 8. **Closing CTA** — `Questions? Start your free trial` linked, `(no credit card needed)`, and the line about asking from inside the account.
-9. **Apps for Community Association Managers** — three cards, Coifish, ReelMinder, PacketSkipper, each with its mark; the current site's card says `You are here`, unreleased ones say `Coming soon`, released ones link to their site.
+9. **Apps for Community Association Managers** — one card per app in `apps.json` order, each with its mark; the current site's card says `You are here`, unreleased ones say `Coming soon`, released ones link to their site.
 10. **Footer** — as above.
 
 ## Voice (same as the apps)

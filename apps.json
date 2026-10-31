@@ -1,6 +1,6 @@
 {
   "company": "LONGLINE LABS LLC",
-  "familyLine": "Three apps for community association managers, built to work the same way.",
+  "familyLine": "Apps for community association managers, built to work the same way.",
   "apps": [
     {
       "key": "coifish",
@@ -22,6 +22,27 @@
       "url": "https://packetskipper.com",
       "live": true,
       "description": "Board packets, minutes, action items, all in one place."
+    },
+    {
+      "key": "ballastbook",
+      "name": "BallastBook",
+      "url": "https://ballastbook.com",
+      "live": false,
+      "description": "A simple, straightforward Annual Budget builder for each of your Associations."
+    },
+    {
+      "key": "shipshapefiles",
+      "name": "ShipShape",
+      "url": "https://shipshapefiles.com",
+      "live": false,
+      "description": "Automatically renames every file to your own custom naming convention, so documents are always easy to find."
+    },
+    {
+      "key": "aboveboard",
+      "name": "Aboveboard",
+      "url": "https://aboveboarddocs.com",
+      "live": false,
+      "description": "An easy-to-use public database where each Association can post its Governing Documents, minutes and records."
     }
   ]
 }

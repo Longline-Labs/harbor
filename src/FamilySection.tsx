@@ -2,7 +2,7 @@ import { apps, type AppKey } from "./apps";
 import { Mark } from "./Mark";
 
 /**
- * "Apps for Community Association Managers": the three apps, at the bottom of every public home page (site.md,
+ * "Apps for Community Association Managers": the six apps, at the bottom of every public home page (site.md,
  * section 9), as coifish.com has it. `current` is the app whose site this is; its card says "You are here". An app
  * whose site is up links to it; one that isn't says "Coming soon". Styles: .family in harbor.css.
  */

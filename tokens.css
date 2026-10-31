@@ -1,4 +1,4 @@
-/* Harbor — design tokens for Coifish, ReelMinder, PacketSkipper. The values are tokens.json's; change both together
+/* Harbor — design tokens for the Longline Labs apps. The values are tokens.json's; change both together
    (npm run check compares them). */
 /* Fonts: Fraunces (display), Instrument Sans (ui), IBM Plex Mono (figures). An app serving them with next/font gives
    them the variables --font-fraunces, --font-instrument and --font-plex-mono; otherwise they are found by name. */
@@ -20,6 +20,12 @@
   --brass-deep: #8a5f10; /* ReelMinder's accent as text or icon on paper (5:1+). */
   --kelp: #2e8a68; /* PacketSkipper's accent: its mark, its Dock tile when active, its app-b */
   --kelp-deep: #1f6b50; /* PacketSkipper's accent as text or icon on paper (5:1+). */
+  --cobalt: #4b63a6; /* BallastBook's accent: its mark, its Dock tile when active, its app-bar  */
+  --cobalt-deep: #3f5490; /* BallastBook's accent as text or icon on paper (5:1+). */
+  --plum: #8c4f86; /* ShipShape's accent: its mark, its Dock tile when active, its app-bar un */
+  --plum-deep: #7a4375; /* ShipShape's accent as text or icon on paper (5:1+). */
+  --azure: #3786b0; /* Aboveboard's accent: its mark, its Dock tile when active, its app-bar u */
+  --azure-deep: #2d6e93; /* Aboveboard's accent as text or icon on paper (5:1+): a deeper step of t */
   --status-ok: #1e6f7a; /* Current, compliant, done. A teal, not a green, so it never sits on the */
   --status-warn: #8a5f10; /* Expiring soon, due this week, needs review. Always paired with a word  */
   --status-danger: #a63a2e; /* Expired, overdue, failed. Always paired with a word or icon. Differs f */
@@ -48,6 +54,12 @@
   --brass-deep: #e4b85e; /* ReelMinder's accent as text or icon on paper (5:1+). */
   --kelp: #4fb08a; /* PacketSkipper's accent: its mark, its Dock tile when active, its app-b */
   --kelp-deep: #67c39d; /* PacketSkipper's accent as text or icon on paper (5:1+). */
+  --cobalt: #8aa0e0; /* BallastBook's accent: its mark, its Dock tile when active, its app-bar  */
+  --cobalt-deep: #9fb2e8; /* BallastBook's accent as text or icon on paper (5:1+). */
+  --plum: #c993c2; /* ShipShape's accent: its mark, its Dock tile when active, its app-bar un */
+  --plum-deep: #d4a5ce; /* ShipShape's accent as text or icon on paper (5:1+). */
+  --azure: #79b9d8; /* Aboveboard's accent: its mark, its Dock tile when active, its app-bar u */
+  --azure-deep: #8fc6e0; /* Aboveboard's accent as text or icon on paper (5:1+): a deeper step of t */
   --status-ok: #6dc4cf; /* Current, compliant, done. A teal, not a green, so it never sits on the */
   --status-warn: #e4b85e; /* Expiring soon, due this week, needs review. Always paired with a word  */
   --status-danger: #ef8b7d; /* Expired, overdue, failed. Always paired with a word or icon. Differs f */
@@ -81,6 +93,12 @@
     --brass-deep: #e4b85e;
     --kelp: #4fb08a;
     --kelp-deep: #67c39d;
+    --cobalt: #8aa0e0;
+    --cobalt-deep: #9fb2e8;
+    --plum: #c993c2;
+    --plum-deep: #d4a5ce;
+    --azure: #79b9d8;
+    --azure-deep: #8fc6e0;
     --status-ok: #6dc4cf;
     --status-warn: #e4b85e;
     --status-danger: #ef8b7d;
@@ -114,6 +132,12 @@
     --brass-deep: #8a5f10;
     --kelp: #2e8a68;
     --kelp-deep: #1f6b50;
+    --cobalt: #4b63a6;
+    --cobalt-deep: #3f5490;
+    --plum: #8c4f86;
+    --plum-deep: #7a4375;
+    --azure: #3786b0;
+    --azure-deep: #2d6e93;
     --status-ok: #1e6f7a;
     --status-warn: #8a5f10;
     --status-danger: #a63a2e;
