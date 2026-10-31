@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 — 2026-10-30
+
+- **apps.json**: the sixth app's name is AboveBoard, capital B (the founder). The docs and token notes follow. The key (`aboveboard`) and the domain are unchanged.
+
 ## 0.2.0 — 2026-10-26
 
 Brought up to app.coifish.com, the family's reference (the founder: "coifish is the most recent and it sounds like harbor needs updated for the other two"). Built on a branch; Coifish built against it matches its own screenshots byte for byte (143 of 145 pages and states; the other two differ only by a loading moment and the day's dates).

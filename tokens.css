@@ -24,8 +24,8 @@
   --cobalt-deep: #3f5490; /* BallastBook's accent as text or icon on paper (5:1+). */
   --plum: #8c4f86; /* ShipShape's accent: its mark, its Dock tile when active, its app-bar un */
   --plum-deep: #7a4375; /* ShipShape's accent as text or icon on paper (5:1+). */
-  --azure: #3786b0; /* Aboveboard's accent: its mark, its Dock tile when active, its app-bar u */
-  --azure-deep: #2d6e93; /* Aboveboard's accent as text or icon on paper (5:1+): a deeper step of t */
+  --azure: #3786b0; /* AboveBoard's accent: its mark, its Dock tile when active, its app-bar u */
+  --azure-deep: #2d6e93; /* AboveBoard's accent as text or icon on paper (5:1+): a deeper step of t */
   --status-ok: #1e6f7a; /* Current, compliant, done. A teal, not a green, so it never sits on the */
   --status-warn: #8a5f10; /* Expiring soon, due this week, needs review. Always paired with a word  */
   --status-danger: #a63a2e; /* Expired, overdue, failed. Always paired with a word or icon. Differs f */
@@ -58,8 +58,8 @@
   --cobalt-deep: #9fb2e8; /* BallastBook's accent as text or icon on paper (5:1+). */
   --plum: #c993c2; /* ShipShape's accent: its mark, its Dock tile when active, its app-bar un */
   --plum-deep: #d4a5ce; /* ShipShape's accent as text or icon on paper (5:1+). */
-  --azure: #79b9d8; /* Aboveboard's accent: its mark, its Dock tile when active, its app-bar u */
-  --azure-deep: #8fc6e0; /* Aboveboard's accent as text or icon on paper (5:1+): a deeper step of t */
+  --azure: #79b9d8; /* AboveBoard's accent: its mark, its Dock tile when active, its app-bar u */
+  --azure-deep: #8fc6e0; /* AboveBoard's accent as text or icon on paper (5:1+): a deeper step of t */
   --status-ok: #6dc4cf; /* Current, compliant, done. A teal, not a green, so it never sits on the */
   --status-warn: #e4b85e; /* Expiring soon, due this week, needs review. Always paired with a word  */
   --status-danger: #ef8b7d; /* Expired, overdue, failed. Always paired with a word or icon. Differs f */

@@ -1,6 +1,6 @@
 ## Design system — Harbor (shared with the other Longline Labs apps)
 
-This app is one of six sibling apps (Coifish, ReelMinder, PacketSkipper, BallastBook, ShipShape, Aboveboard) that must look like one product family. The design language lives in the `@longline/harbor` package (the `harbor` repo next to this one), not in this repo. Read `HARBOR.md` in that package before any UI work, `components.md` before building or changing a component, `app-shell.md` for the signed-in layout, and `site.md` for the marketing site. This app is **APP_NAME**; its accent is `--APP_ACCENT`.
+This app is one of six sibling apps (Coifish, ReelMinder, PacketSkipper, BallastBook, ShipShape, AboveBoard) that must look like one product family. The design language lives in the `@longline/harbor` package (the `harbor` repo next to this one), not in this repo. Read `HARBOR.md` in that package before any UI work, `components.md` before building or changing a component, `app-shell.md` for the signed-in layout, and `site.md` for the marketing site. This app is **APP_NAME**; its accent is `--APP_ACCENT`.
 
 Rules that are not negotiable:
 - Never create a local copy of anything Harbor provides: no `harbor/` folder in this repo, no local Dock, Mark, StatusBadge, ThemeSwitch or FamilySection, no copied logo files. Import them from `@longline/harbor`. If something is missing from the package, add it to the package (on a branch, with a changelog entry and a version bump), then use it here.
@@ -8,10 +8,10 @@ Rules that are not negotiable:
 - This app's accent is `--APP_ACCENT` (and `--APP_ACCENT-deep` for text). It is used only for the app's mark, the active Dock tile and the app-bar underline. Buttons, links, focus rings and navigation use `--sea`.
 - Surfaces separate with `--hairline` borders, never shadows. No gradients. No emoji in UI copy.
 - Fonts: Fraunces for display styles, Instrument Sans for UI, IBM Plex Mono for dates, amounts and IDs. Do not substitute Inter/Roboto/system fonts.
-- Spell the product names exactly: Coifish, ReelMinder, PacketSkipper, BallastBook, ShipShape, Aboveboard (never lowercase, never COIFish; ShipShape's domain is shipshapefiles.com and its key in the package is `shipshapefiles`). The company name comes from `company` in the package; never type it by hand.
+- Spell the product names exactly: Coifish, ReelMinder, PacketSkipper, BallastBook, ShipShape, AboveBoard (never lowercase, never COIFish; ShipShape's domain is shipshapefiles.com and its key in the package is `shipshapefiles`). The company name comes from `company` in the package; never type it by hand.
 - Light and dark themes both ship. A page follows the device's setting (tokens.css does this) until the person uses the `ThemeSwitch`; the choice is then `[data-theme]` on `<html>`, applied before first paint with `themeChoiceScript()` from the package.
 - The marketing site follows `site.md` section for section; only the mark, accent, copy and mockup content differ from the other sites.
 - When in doubt about a visual decision, follow the package's `HARBOR.md` over existing code in this repo.
 - Do not change the Harbor package during an unattended run. Note what it needs in the report instead.
 
-Replace APP_NAME / APP_ACCENT: Coifish / koi, ReelMinder / brass, PacketSkipper / kelp, BallastBook / cobalt, ShipShape / plum, Aboveboard / azure.
+Replace APP_NAME / APP_ACCENT: Coifish / koi, ReelMinder / brass, PacketSkipper / kelp, BallastBook / cobalt, ShipShape / plum, AboveBoard / azure.

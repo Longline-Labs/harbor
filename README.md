@@ -1,6 +1,6 @@
 # Harbor
 
-Harbor is the design language shared by **Coifish**, **ReelMinder**, **PacketSkipper**, **BallastBook**, **ShipShape** and **Aboveboard**. This repo is the single source of truth. The apps depend on it as a package; nothing in here is copied into an app by hand anymore.
+Harbor is the design language shared by **Coifish**, **ReelMinder**, **PacketSkipper**, **BallastBook**, **ShipShape** and **AboveBoard**. This repo is the single source of truth. The apps depend on it as a package; nothing in here is copied into an app by hand anymore.
 
 What's here:
 
@@ -42,4 +42,4 @@ Until the repo is on GitHub, apps can depend on the folder directly: `"@longline
 2. Bump the version in `package.json` and tag it (`git tag v0.2.0`).
 3. In each app, update the dependency to the new tag and run its tests. Apps move at their own pace; a pinned version never changes under them.
 
-The company is Longline Labs LLC (the state approved the Articles of Amendment in October 2026). Its name is in `apps.json` (`company`, read by the Dock and the footers) and in the docs here; its mark is the Linked LL (`logos/longline-labs-mark*.svg`, drawn by `Mark name="company"`). The first three apps pick both up on their next update of the package; BallastBook, ShipShape and Aboveboard started on 0.3.0.
+The company is Longline Labs LLC (the state approved the Articles of Amendment in October 2026). Its name is in `apps.json` (`company`, read by the Dock and the footers) and in the docs here; its mark is the Linked LL (`logos/longline-labs-mark*.svg`, drawn by `Mark name="company"`). The first three apps pick both up on their next update of the package; BallastBook, ShipShape and AboveBoard started on 0.3.0.

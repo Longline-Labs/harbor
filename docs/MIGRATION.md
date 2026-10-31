@@ -1,6 +1,6 @@
 # Moving an app onto the Harbor package
 
-Do this once per app, in that app's Claude Code session, on a branch, with the test suite green before and after. The apps are Coifish (`apps/Coifish`, accent `koi`), ReelMinder (`apps/ReelMinder`, accent `brass`), PacketSkipper (`apps/PacketSkipper`, accent `kelp`), BallastBook (`apps/BallastBook`, `cobalt`), ShipShape (`apps/ShipShape`, `plum`) and Aboveboard (`apps/AboveBoard`, `azure`); the three newer ones were built on the package from the start.
+Do this once per app, in that app's Claude Code session, on a branch, with the test suite green before and after. The apps are Coifish (`apps/Coifish`, accent `koi`), ReelMinder (`apps/ReelMinder`, accent `brass`), PacketSkipper (`apps/PacketSkipper`, accent `kelp`), BallastBook (`apps/BallastBook`, `cobalt`), ShipShape (`apps/ShipShape`, `plum`) and AboveBoard (`apps/AboveBoard`, `azure`); the three newer ones were built on the package from the start.
 
 ## Steps
 

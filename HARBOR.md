@@ -1,6 +1,6 @@
 # Harbor — the design language shared by the Longline Labs apps
 
-Harbor is the shared design language for the six Longline Labs LLC apps built for community association managers: **Coifish** (certificates of insurance), **ReelMinder** (reminders), **PacketSkipper** (board packets, minutes, action items), **BallastBook** (annual budgets), **ShipShape** (file naming) and **Aboveboard** (public document posting). One system, six accents. A manager who opens any of them should feel they are in the same office, at a different desk.
+Harbor is the shared design language for the six Longline Labs LLC apps built for community association managers: **Coifish** (certificates of insurance), **ReelMinder** (reminders), **PacketSkipper** (board packets, minutes, action items), **BallastBook** (annual budgets), **ShipShape** (file naming) and **AboveBoard** (public document posting). One system, six accents. A manager who opens any of them should feel they are in the same office, at a different desk.
 
 ## The idea
 
