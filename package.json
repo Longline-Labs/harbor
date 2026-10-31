@@ -1,6 +1,6 @@
 {
   "name": "@longline/harbor",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Harbor: the design language shared by the Longline Labs apps (Coifish, ReelMinder, PacketSkipper, BallastBook, ShipShape, AboveBoard). Tokens, component styles, marks, the family list, and the shared React components.",
   "private": true,
   "license": "UNLICENSED",

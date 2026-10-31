@@ -31,10 +31,10 @@ Dates are ISO (2026-11-06) in `numeral`; amounts right-align. Status is always a
 The Dock makes six apps feel like one company. It appears, identically, in every app, in three pieces, each given `current` (which app this is):
 
 - `DockCorner` (`href`, default "/"): this app's mark at 38px in a 56px cell at the far left of the bar, with a `hairline` right edge, leading home. Hidden on phones.
-- `Dock` (`belowBar` for a 64px bar that stays at the top, as on the public pages): the 56px rail under the corner, on `paper-raised`, listing the other apps from `apps.json`, in its order, marks at 26px. A live app links to its site; one that isn't shows its mark faded (40%, greyscale) and no link. Hidden on phones and in print.
-- `DockButton`: on phones only, a menu button in the bar that opens the same list as a 232px panel from the left, titled "Other apps", with "Coming soon" under an app that isn't live; Escape or a tap outside closes it.
+- `Dock` (`belowBar` for a 64px bar that stays at the top, as on the public pages): the 56px rail under the corner, on `paper-raised`, listing the other apps from `apps.json`, in its order, marks at 26px with the name beneath, stacked at its capital (Packet / Skipper) to fit. A live app links to its site; one that isn't shows its mark faded (40%, greyscale), `Soon` under its name and no link. The hover tooltip stays as an extra, never as the only place a name appears. Hidden on phones and in print.
+- `DockButton`: on phones only, a four-tile apps button in the bar (not three lines, which mean the app's own menu) that opens the same list as a 232px panel from the left, titled "Other apps", with "Coming soon" under an app that isn't live. The panel's Close button, Escape, a tap outside or tabbing out of it closes it, and focus goes to Close on opening and back to the button on closing. It scrolls on a screen too short to hold it.
 
-The Dock holds no in-app navigation, no account and no theme switch, and never scrolls.
+The Dock holds no in-app navigation, no account and no theme switch, and scrolls only on a screen too short to hold it.
 
 ## FormField
 
