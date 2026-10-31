@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 — 2026-10-31
+
+Found in ReelMinder's review of October 31. No prop or export changes, so an app takes this by moving its pin; the rail and the phone button look different in every app that does.
+
+- **DockButton**: four tiles instead of three lines. The apps button and an app's own Menu button sat in the same bar with the same icon, and people tapped the wrong one.
+- **The phone panel**: a visible Close button at the top right (`.dock-close`, 44px), beside "Other apps". Focus goes to it on opening and back to the apps button on closing, and tabbing out of the panel closes it. The panel is announced as a dialog named "Other apps" and scrolls on a very short screen. The backdrop still closes the panel but is now for the pointer only, so screen readers hear one Close button, not two.
+- **Dock (the rail)**: each app's name sits under its mark (`.dock-rail-name`), stacked at its capital (Packet / Skipper) to fit the same 56px, and an app that isn't live says `Soon` (`.dock-rail-soon`). The tooltips stay, and what a screen reader hears is unchanged. The rail is taller for it: five apps need about 400px. A screen shorter than that (a large phone on its side) scrolls the rail, with no scrollbar showing, in an app whose rail fills the page too.
+- Docs: `HARBOR.md`, `components.md`, `app-shell.md`.
+
 ## 0.3.1 — 2026-10-30
 
 - **apps.json**: the sixth app's name is AboveBoard, capital B (the founder). The docs and token notes follow. The key (`aboveboard`) and the domain are unchanged.

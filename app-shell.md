@@ -4,7 +4,7 @@ app.coifish.com is the reference. Every other app reproduces the same shell so a
 
 ## Layout, left to right
 
-1. **The Dock** (`components.md` → Dock): the bar's top-left corner holds this app's mark (38px, a 56px cell, `DockCorner`), and the 56px rail beneath it (`Dock`, `paper-raised`, hairline right edge) holds the other apps in `apps.json` order, linking out once live, faded with `Coming soon` before. On phones a menu button in the bar (`DockButton`) opens them instead. The Dock holds no in-app navigation, no account and no theme switch.
+1. **The Dock** (`components.md` → Dock): the bar's top-left corner holds this app's mark (38px, a 56px cell, `DockCorner`), and the 56px rail beneath it (`Dock`, `paper-raised`, hairline right edge) holds the other apps in `apps.json` order with their names under the marks, linking out once live, faded and marked `Soon` before. On phones a four-tile apps button in the bar (`DockButton`) opens them instead. The Dock holds no in-app navigation, no account and no theme switch.
 2. **App bar**: wordmark at left (mark 28px + Fraunces 500 22px), page-level primary actions at right, 2px underline in the app's accent. This underline is the only place the accent appears in the chrome.
 3. **Page**: title in `display-xl`, one `body-sm` `ink-muted` context line ("Harbor View Condominiums · 38 vendors"), then stat tiles, filters, and the main table in that order. Content gutter `space-5`.
 

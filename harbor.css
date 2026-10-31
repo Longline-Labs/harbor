@@ -12,7 +12,8 @@
     .input,
     .select,
     .dock-app,
-    .dock-button {
+    .dock-button,
+    .dock-close {
       transition:
         background-color 150ms ease-out,
         border-color 150ms ease-out,
@@ -248,9 +249,9 @@
   }
 
   /* The Dock, as app.coifish.com has it (October 25, 2026): the top-left corner of the bar belongs to the app in use
-     (.dock-corner, its mark at 38px above the rail), and the rail beneath holds only the other apps, marks at 26px,
-     linking out once live, faded with "Coming soon" before. On a phone the rail opens from a button in the bar
-     (.dock-button) as a panel over the page. Nothing else sits in the rail. */
+     (.dock-corner, its mark at 38px above the rail), and the rail beneath holds only the other apps, marks at 26px with
+     their names beneath, linking out once live, faded and marked "Soon" before. On a phone the rail opens from a button
+     in the bar (.dock-button) as a panel over the page. Nothing else sits in the rail. */
   .dock {
     position: sticky;
     top: 0;
@@ -283,6 +284,20 @@
     padding: 8px;
   }
 
+  /* Names need most of the 56px, so the side padding gives way, leaving just room for the focus ring. A very short
+     screen scrolls the list. */
+  .dock > .dock-apps {
+    box-sizing: border-box;
+    max-height: 100vh;
+    padding-inline: 4px;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .dock.below-bar > .dock-apps {
+    max-height: calc(100vh - 64px);
+  }
+
   .dock-heading {
     margin: 0;
     padding: 0 8px 4px;
@@ -308,6 +323,14 @@
     justify-content: flex-start;
     height: 48px;
     padding: 0 8px;
+  }
+
+  .dock-app.in-rail {
+    flex: none;
+    flex-direction: column;
+    gap: 3px;
+    height: auto;
+    padding: 6px 0;
   }
 
   @media (hover: hover) {
@@ -352,6 +375,25 @@
     text-transform: uppercase;
   }
 
+  .dock-rail-name {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .dock-rail-name > span {
+    display: block;
+  }
+
+  .dock-rail-name > .dock-rail-soon {
+    margin-top: 2px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
   .dock-corner {
     display: none;
     flex: none;
@@ -387,7 +429,8 @@
   }
 
   @media (hover: hover) {
-    .dock-button:hover {
+    .dock-button:hover,
+    .dock-close:hover {
       background: var(--paper-sunken);
     }
   }
@@ -414,10 +457,36 @@
     left: 0;
     box-sizing: border-box;
     width: 232px;
-    padding-top: 8px;
+    overflow-y: auto;
     border-right: 1px solid var(--hairline);
     background: var(--paper-raised);
     box-shadow: var(--shadow-float);
+  }
+
+  /* The heading's row is as tall as the Close button beside it, so the button never covers the first app. */
+  .dock-panel .dock-heading {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding-block: 0;
+  }
+
+  .dock-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
