@@ -1,504 +1,599 @@
-/* Harbor component styles, shared by Coifish, ReelMinder and PacketSkipper.
+/* Harbor component styles, shared by the Longline Labs apps.
    Import after tokens.css. Extracted from PacketSkipper's globals.css in 0.1.0;
-   edit here, never in an app. */
+   edit here, never in an app.
+   Everything sits in the "components" cascade layer (Tailwind's own), so an app's utility classes can still adjust a
+   shared component where it needs to, as coifish.com's product picture shrinks its badges. */
 
-@media (prefers-reduced-motion: no-preference) {
-  .btn,
+@layer components {
+  @media (prefers-reduced-motion: no-preference) {
+    .btn,
     .ic,
     .link,
     .input,
     .select,
-    .dock-tile {
+    .dock-app,
+    .dock-button {
       transition:
         background-color 150ms ease-out,
         border-color 150ms ease-out,
         color 150ms ease-out;
     }
-}
+  }
 
-.h-display {
-  font-family: var(--font-display);
-  font-size: 28px;
-  line-height: 34px;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-}
+  .h-display {
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
 
-@media (max-width: 640px) {
-  .h-display-xl {
-      font-size: 30px;
-      line-height: 36px;
-    }
-}
+  @media (max-width: 640px) {
+    .h-display-xl {
+        font-size: 30px;
+        line-height: 36px;
+      }
+  }
 
-.panel-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
+  .panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
 
-.panel h2 {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 600;
-}
+  .panel h2 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+  }
 
-.hint {
-  color: var(--ink-muted);
-  font-size: 13px;
-  line-height: 18px;
-}
+  .hint {
+    color: var(--ink-muted);
+    font-size: 13px;
+    line-height: 18px;
+  }
 
-/* Harbor FormField: label-style label above a paper-sunken well with a hairline-strong edge. */
-.field label,
-.label {
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
+  /* Harbor FormField: label-style label above a paper-sunken well with a hairline-strong edge. */
+  .field label,
+  .label {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
 
-@media (hover: hover) {
-  .btn:hover {
-      background: var(--paper-sunken);
-    }
-}
+  @media (hover: hover) {
+    .btn:hover {
+        background: var(--paper-sunken);
+      }
+  }
 
-.btn.primary {
-  background: var(--sea);
-  border-color: var(--sea);
-  color: var(--on-sea);
-}
+  .btn.primary {
+    background: var(--sea);
+    border-color: var(--sea);
+    color: var(--on-sea);
+  }
 
-@media (hover: hover) {
-  .btn.primary:hover {
-      background: var(--sea);
-      filter: brightness(1.12);
-    }
-}
+  @media (hover: hover) {
+    .btn.primary:hover {
+        background: var(--sea);
+        filter: brightness(1.12);
+      }
+  }
 
-.btn.danger {
-  background: transparent;
-  border-color: var(--status-danger);
-  color: var(--status-danger);
-}
+  .btn.danger {
+    background: transparent;
+    border-color: var(--status-danger);
+    color: var(--status-danger);
+  }
 
-@media (hover: hover) {
-  .btn.danger:hover {
-      background: var(--status-danger-tint);
-    }
-}
+  @media (hover: hover) {
+    .btn.danger:hover {
+        background: var(--status-danger-tint);
+      }
+  }
 
-.btn.quiet {
-  border-color: transparent;
-  background: transparent;
-  color: var(--ink-muted);
-}
+  .btn.quiet {
+    border-color: transparent;
+    background: transparent;
+    color: var(--ink-muted);
+  }
 
-@media (hover: hover) {
-  .btn.quiet:hover {
-      background: var(--paper-sunken);
-      color: var(--ink);
-    }
-}
+  @media (hover: hover) {
+    .btn.quiet:hover {
+        background: var(--paper-sunken);
+        color: var(--ink);
+      }
+  }
 
-/* A button that stays selected (Present, Carried, the chosen notice): a solid sea fill, so it reads at a glance. */
-.btn.toggle[aria-pressed="true"],
-.btn.toggle[aria-pressed="true"]:hover,
-.btn.toggle[aria-selected="true"],
-.btn.toggle[aria-selected="true"]:hover {
-  background: var(--sea);
-  border-color: var(--sea);
-  color: var(--on-sea);
-  filter: none;
-}
+  /* A button that stays selected (Present, Carried, the chosen notice): a solid sea fill, so it reads at a glance. */
+  .btn.toggle[aria-pressed="true"],
+  .btn.toggle[aria-pressed="true"]:hover,
+  .btn.toggle[aria-selected="true"],
+  .btn.toggle[aria-selected="true"]:hover {
+    background: var(--sea);
+    border-color: var(--sea);
+    color: var(--on-sea);
+    filter: none;
+  }
 
-.btn.sm {
-  min-height: 28px;
-  padding: 0 10px;
-  font-size: 13px;
-}
+  .btn.sm {
+    min-height: 28px;
+    padding: 0 10px;
+    font-size: 13px;
+  }
 
-.btn.big {
-  padding: 0 18px;
-  font-size: 15px;
-  min-height: 44px;
-}
+  .btn.big {
+    padding: 0 18px;
+    font-size: 15px;
+    min-height: 44px;
+  }
 
-.btn svg {
-  width: 16px;
-  height: 16px;
-  flex: none;
-}
+  .btn svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+  }
 
-.btn:disabled,
-.btn[aria-disabled="true"] {
-  opacity: 0.5;
-  cursor: default;
-  pointer-events: none;
-}
+  .btn:disabled,
+  .btn[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+  }
 
-.sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
 
-.panel.flush {
-  padding: 0;
-  overflow: hidden;
-}
+  .panel.flush {
+    padding: 0;
+    overflow: hidden;
+  }
 
-/* A table inside a padded card lines up with the card's padding. */
-.panel:not(.flush) .table th:first-child,
-.panel:not(.flush) .table td:first-child {
-  padding-left: 0;
-}
+  /* A table inside a padded card lines up with the card's padding. */
+  .panel:not(.flush) .table th:first-child,
+  .panel:not(.flush) .table td:first-child {
+    padding-left: 0;
+  }
 
-.panel:not(.flush) .table th:last-child,
-.panel:not(.flush) .table td:last-child {
-  padding-right: 0;
-}
+  .panel:not(.flush) .table th:last-child,
+  .panel:not(.flush) .table td:last-child {
+    padding-right: 0;
+  }
 
-@media (max-width: 640px) {
-  .panel:not(.flush) .table.stack tr {
-      padding-left: 0;
-      padding-right: 0;
-    }
-}
+  @media (max-width: 640px) {
+    .panel:not(.flush) .table.stack tr {
+        padding-left: 0;
+        padding-right: 0;
+      }
+  }
 
-.dock-menu .btn {
-  justify-content: flex-start;
-  width: 100%;
-}
+  /* StatusBadge: the word in small capitals on its tone's tint, with the tone's icon. As app.coifish.com draws it. */
+  .pill {
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--paper-sunken);
+    color: var(--ink-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
 
-.pill svg {
-  width: 12px;
-  height: 12px;
-}
+  /* A long label ("No certificate for 2 of 3") may break onto a second line, as the text around it does, rather
+     than run out of its column. */
+  .pill.wrap {
+    white-space: inherit;
+  }
 
-.pill.ok {
-  background: var(--status-ok-tint);
-  color: var(--status-ok);
-}
+  .pill svg {
+    flex: none;
+    width: 12px;
+    height: 12px;
+  }
 
-.pill.warn {
-  background: var(--status-warn-tint);
-  color: var(--status-warn);
-}
+  .pill.ok {
+    background: var(--status-ok-tint);
+    color: var(--status-ok);
+  }
 
-.pill.danger {
-  background: var(--status-danger-tint);
-  color: var(--status-danger);
-}
+  .pill.warn {
+    background: var(--status-warn-tint);
+    color: var(--status-warn);
+  }
 
-/* Pieces shown only in one theme or one Dock state (picked by <html> attributes, so nothing flickers). */
-[data-theme="dark"] .when-light,
-:root:not([data-theme="dark"]) .when-dark,
-[data-dock="expanded"] .when-collapsed,
-:root:not([data-dock="expanded"]) .when-expanded {
-  display: none;
-}
+  .pill.danger {
+    background: var(--status-danger-tint);
+    color: var(--status-danger);
+  }
 
-[data-dock="expanded"] {
-  --dock-w: 232px;
-}
+  /* Waiting on someone in the team (Coifish's "Pending review"): sea on its tint, never a status colour. */
+  .pill.info {
+    background: var(--sea-tint);
+    color: var(--sea);
+  }
 
-.dock {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-2);
-  background: var(--paper-raised);
-  border-right: 1px solid var(--hairline);
-  z-index: 25;
-}
+  /* Pieces shown only in one theme (the two files of each mark), picked by <html>'s data-theme, or, where the person
+     hasn't chosen, by the device's setting, so nothing flickers. */
+  [data-theme="dark"] .when-light,
+  :root:not([data-theme="dark"]) .when-dark {
+    display: none;
+  }
 
-.dock-company,
-.dock-tile {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  min-height: 40px;
-  padding: 0 5px;
-  border-radius: var(--radius-md);
-  color: var(--ink);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.dock-company {
-  min-height: 48px;
-  border-bottom: 1px solid var(--hairline);
-  border-radius: 0;
-  margin: 0 -8px;
-  padding: 0 13px var(--space-2);
-}
-
-.dock-tile {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-  list-style: none;
-}
-
-.dock-tile::-webkit-details-marker {
-  display: none;
-}
-
-/* This app's tile: a sea-tint ground and a 2px inset ring in its accent.
-   The Dock sets .dock-<app> on itself; --app-accent follows. */
-.dock { --app-accent: var(--sea); }
-.dock-coifish { --app-accent: var(--koi); }
-.dock-reelminder { --app-accent: var(--brass); }
-.dock-packetskipper { --app-accent: var(--kelp); }
-.dock-tile.dock-current,
-.dock-tile.dock-current:hover {
-  background: var(--sea-tint);
-  box-shadow: inset 0 0 0 2px var(--app-accent);
-}
-
-.dock-off {
-  cursor: default;
-  color: var(--ink-faint);
-}
-
-.dock-icon {
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-items: center;
-  flex: none;
-  color: var(--ink-muted);
-}
-
-.dock-icon svg {
-  width: 20px;
-  height: 20px;
-  stroke-width: 1.75;
-}
-
-.dock-label {
-  display: grid;
-  min-width: 0;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 18px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.dock-company .dock-label {
-  font-size: 12px;
-}
-
-.dock-app-name {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 16px;
-}
-
-.dock-soon {
-  color: var(--ink-faint);
-  font-size: 11px;
-}
-
-.dock-apps {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: var(--space-1);
-}
-
-.dock-bottom {
-  margin-top: auto;
-  display: grid;
-  gap: var(--space-1);
-  padding-top: var(--space-2);
-  border-top: 1px solid var(--hairline);
-}
-
-.dock-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: var(--radius-round);
-  background: var(--sea);
-  color: var(--on-sea);
-  display: grid;
-  place-items: center;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.dock-user {
-  font-weight: 500;
-}
-
-.dock-account {
-  position: relative;
-}
-
-.dock-menu {
-  position: fixed;
-  left: calc(var(--dock-w) + 6px);
-  bottom: 12px;
-  z-index: 40;
-  display: grid;
-  gap: 2px;
-  min-width: 240px;
-  padding: var(--space-2);
-  background: var(--paper-raised);
-  border: 1px solid var(--hairline);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-float);
-}
-
-.dock-menu-who {
-  padding: 4px 8px 8px;
-  font-size: 14px;
-}
-
-@media (max-width: 640px) {
-  [data-dock="expanded"] {
-      --dock-w: 56px;
-    }
-  [data-dock="expanded"] .dock-label {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-    }
-  .dock-expand {
+  @media screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .when-light {
       display: none;
     }
-}
-
-.site-container {
-  width: 100%;
-  max-width: 1100px;
-  margin-inline: auto;
-  padding-inline: var(--space-5);
-}
-
-@media (max-width: 767px) {
-  .site-container {
-      padding-inline: var(--space-4);
+    :root:not([data-theme]) .when-dark {
+      display: revert;
     }
-}
+  }
 
-.theme-knob {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 22px;
-  height: 22px;
-  display: grid;
-  place-items: center;
-  border-radius: var(--radius-round);
-  background: var(--paper-raised);
-  color: var(--ink);
-}
+  /* The Dock, as app.coifish.com has it (October 25, 2026): the top-left corner of the bar belongs to the app in use
+     (.dock-corner, its mark at 38px above the rail), and the rail beneath holds only the other apps, marks at 26px,
+     linking out once live, faded with "Coming soon" before. On a phone the rail opens from a button in the bar
+     (.dock-button) as a panel over the page. Nothing else sits in the rail. */
+  .dock {
+    position: sticky;
+    top: 0;
+    display: none;
+    flex: none;
+    align-self: flex-start;
+    box-sizing: border-box;
+    width: 56px;
+    height: 100vh;
+    border-right: 1px solid var(--hairline);
+    background: var(--paper-raised);
+  }
 
-@media (prefers-reduced-motion: no-preference) {
+  /* Under a 64px bar that stays at the top (the public pages). */
+  .dock.below-bar {
+    top: 64px;
+    height: calc(100vh - 64px);
+  }
+
+  @media (min-width: 768px) {
+    .dock {
+      display: block;
+    }
+  }
+
+  .dock-apps {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .dock-heading {
+    margin: 0;
+    padding: 0 8px 4px;
+    color: var(--ink-muted);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .dock-app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 44px;
+    border-radius: 8px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .dock-app.with-name {
+    justify-content: flex-start;
+    height: 48px;
+    padding: 0 8px;
+  }
+
+  @media (hover: hover) {
+    a.dock-app:hover {
+      background: var(--paper-sunken);
+    }
+  }
+
+  .dock-app.dock-off {
+    color: var(--ink-muted);
+  }
+
+  .dock-faded {
+    opacity: 0.4;
+    filter: grayscale(100%);
+  }
+
+  .dock-mark {
+    position: relative;
+    display: block;
+    flex: none;
+  }
+
+  .dock-app-text {
+    min-width: 0;
+  }
+
+  .dock-app-name {
+    display: block;
+    overflow: hidden;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dock-soon {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .dock-corner {
+    display: none;
+    flex: none;
+    align-items: center;
+    align-self: stretch;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 56px;
+    border-right: 1px solid var(--hairline);
+  }
+
+  @media (min-width: 768px) {
+    .dock-corner {
+      display: flex;
+    }
+  }
+
+  .dock-button {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: -4px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .dock-button:hover {
+      background: var(--paper-sunken);
+    }
+  }
+
+  .dock-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+  }
+
+  .dock-backdrop {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+    border: 0;
+    background: color-mix(in oklab, var(--ink) 40%, transparent);
+    cursor: pointer;
+  }
+
+  .dock-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 232px;
+    padding-top: 8px;
+    border-right: 1px solid var(--hairline);
+    background: var(--paper-raised);
+    box-shadow: var(--shadow-float);
+  }
+
+  @media (min-width: 768px) {
+    .dock-button,
+    .dock-overlay {
+      display: none;
+    }
+  }
+
+  @media print {
+    .dock,
+    .dock-button {
+      display: none;
+    }
+  }
+
+  /* The light and dark switch, as app.coifish.com has it: a 44 by 24 track with an 18px knob carrying a sun or a moon.
+     Hidden until the browser knows which mode is on (data-unknown), so it never shows the wrong one. */
+  .theme-switch {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    height: 36px;
+    padding: 0 4px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .theme-switch[data-unknown] {
+    visibility: hidden;
+  }
+
+  .theme-track {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 44px;
+    height: 24px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-round);
+    background: var(--paper-sunken);
+  }
+
   .theme-knob {
-      transition: transform 150ms ease-out;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: var(--radius-round);
+    background: var(--paper-raised);
+    box-shadow: 0 0 0 1px var(--hairline);
+    color: var(--ink);
+    translate: 0 -50%;
+  }
+
+  .theme-switch[aria-checked="true"] .theme-knob {
+    left: 22px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .theme-knob {
+      transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1);
     }
-}
+  }
 
-.theme-knob svg {
-  width: 14px;
-  height: 14px;
-  stroke-width: 2;
-}
+  /* "Apps for Community Association Managers", the last section of every public home page (site.md, section 9),
+     as coifish.com has it. */
+  .family {
+    box-sizing: border-box;
+    padding-top: 40px;
+    padding-bottom: 56px;
+    border-top: 1px solid var(--hairline);
+    line-height: 1.5;
+  }
 
-.family > .h-display {
-  margin: 0;
-}
+  .family-title {
+    margin: 0 0 20px;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 1.25;
+  }
 
-.family-cards {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: var(--space-4);
-}
-
-@media (min-width: 768px) {
   .family-cards {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 768px) {
+    .family-cards {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-}
+  }
 
-.family-card {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: var(--space-3);
-  padding: var(--space-4);
-}
+  .family-card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 16px;
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    background: var(--paper-raised);
+  }
 
-.family-name {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 28px;
-}
+  .family-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
 
-.family-card p {
-  margin: 0;
-  color: var(--ink-muted);
-}
+  .family-mark {
+    display: flex;
+    flex: none;
+  }
 
-.family-status a {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--sea);
-}
+  .family-mark.faded {
+    opacity: 0.5;
+  }
 
-.family-status svg {
-  width: 14px;
-  height: 14px;
-}
+  .family-app-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
 
-@media print {
-  .no-print {
-      display: none !important;
-    }
-}
+  .family-line {
+    flex: 1;
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+  }
 
-.theme-switch {
-  position: relative;
-  flex: none;
-  width: 52px;
-  height: 28px;
-  padding: 0;
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--radius-round);
-  background: var(--paper-sunken);
-}
+  .family-status {
+    margin: 12px 0 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
 
-[data-theme="dark"] .theme-knob {
-  transform: translateX(24px);
+  .family-status span {
+    color: var(--ink-muted);
+  }
+
+  .family-status a {
+    color: var(--sea);
+    text-decoration: underline;
+  }
+
+  .site-container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+  }
+
+  @media (max-width: 767px) {
+    .site-container {
+        padding-inline: var(--space-4);
+      }
+  }
+
+  @media print {
+    .no-print {
+        display: none !important;
+      }
+  }
 }

@@ -1,10 +1,10 @@
 # The app shell every Longline Labs app shares
 
-app.coifish.com is the reference. ReelMinder and PacketSkipper reproduce the same shell so a manager who uses two of them never has to relearn where things are. Components and tokens: `components.md`, `tokens.css`.
+app.coifish.com is the reference. Every other app reproduces the same shell so a manager who uses two of them never has to relearn where things are. Components and tokens: `components.md`, `tokens.css`.
 
 ## Layout, left to right
 
-1. **The Dock** (`components.md` → Dock): 56px collapsed, 232px expanded, `paper-raised`, hairline right edge. The company mark (the Linked LL) on top, then one tile per app in this fixed order: Coifish, ReelMinder, PacketSkipper. The current app's tile gets `sea-tint` and a 2px inset ring in its accent. Live siblings link out to `app.<domain>`; unreleased ones show their mark faded with `Coming soon`. Bottom: avatar and theme toggle. The Dock holds no in-app navigation.
+1. **The Dock** (`components.md` → Dock): the bar's top-left corner holds this app's mark (38px, a 56px cell, `DockCorner`), and the 56px rail beneath it (`Dock`, `paper-raised`, hairline right edge) holds the other apps in `apps.json` order, linking out once live, faded with `Coming soon` before. On phones a menu button in the bar (`DockButton`) opens them instead. The Dock holds no in-app navigation, no account and no theme switch.
 2. **App bar**: wordmark at left (mark 28px + Fraunces 500 22px), page-level primary actions at right, 2px underline in the app's accent. This underline is the only place the accent appears in the chrome.
 3. **Page**: title in `display-xl`, one `body-sm` `ink-muted` context line ("Harbor View Condominiums · 38 vendors"), then stat tiles, filters, and the main table in that order. Content gutter `space-5`.
 
