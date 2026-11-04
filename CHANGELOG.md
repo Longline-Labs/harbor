@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.4.0 — 2026-11-03
+
+- **Dock**: `Dock` and `DockButton` take `inUse`, the signed-in person's apps as keys (their grants at
+  account.longlinelabs.com, which the app's own server reads from the account site's `/api/apps-in-use`; single sign-in
+  plan, step 9). With at least one app besides the current one in the list, the person's own apps stay at full strength,
+  say "You use this" (`dock-yours`, where "Coming soon" goes) and lead to the signed-in app where it has an address; the
+  others go quiet (`dock-quiet`: mark faded as a coming-soon one, name muted) but remain links to their sites. A used
+  app's link carries `data-in-use`. Without the list, with a list that couldn't be read (null), or when the person uses
+  only this app, the Dock is exactly as before. `appsToMark` and `ownAppHref` are exported for an app drawing its own
+  rail. The wording and the quiet treatment are the first draft, for Brandon to confirm.
+- **apps.json**: each app has `appUrl`, the signed-in app's address (app.coifish.com, app.reelminders.com,
+  app.packetskipper.com; null for the three with none yet), which the Dock uses for a person's own apps. BallastBook,
+  ShipShape and AboveBoard are `live`: their websites are up (ballastbook.com since October 31, shipshapefiles.com and
+  aboveboarddocs.com since November 3; Brandon's word, as `@longline/web` 0.4.11 and 0.4.12 already record), so the
+  Dock links to them instead of saying "Coming soon". The apps themselves are still closed to sign-ups; that is each
+  site's own business.
+
 ## 0.3.1 — 2026-10-30
 
 - **apps.json**: the sixth app's name is AboveBoard, capital B (the founder). The docs and token notes follow. The key (`aboveboard`) and the domain are unchanged.

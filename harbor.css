@@ -320,6 +320,11 @@
     color: var(--ink-muted);
   }
 
+  /* With the signed-in person's own apps known (Dock's inUse): the others go quiet, still links. */
+  .dock-app.dock-quiet {
+    color: var(--ink-muted);
+  }
+
   .dock-faded {
     opacity: 0.4;
     filter: grayscale(100%);
@@ -344,7 +349,8 @@
     white-space: nowrap;
   }
 
-  .dock-soon {
+  .dock-soon,
+  .dock-yours {
     display: block;
     font-size: 0.68rem;
     font-weight: 600;

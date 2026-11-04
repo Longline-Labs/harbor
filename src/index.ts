@@ -1,4 +1,4 @@
-export { apps, appByKey, company, familyLine, type AppKey, type HarborApp } from "./apps";
+export { apps, appByKey, appsToMark, ownAppHref, company, familyLine, type AppKey, type AppsInUse, type HarborApp } from "./apps";
 export { MARKS, markDataUrl, type MarkName } from "./marks";
 export { Mark, markSvg } from "./Mark";
 export { StatusBadge, type Tone } from "./StatusBadge";

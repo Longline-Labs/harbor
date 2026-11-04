@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { apps, company, type AppKey, type HarborApp } from "./apps";
+import { apps, appsToMark, company, ownAppHref, type AppKey, type AppsInUse, type HarborApp } from "./apps";
 import { Mark } from "./Mark";
 
 /**
@@ -10,6 +10,11 @@ import { Mark } from "./Mark";
  * apps, smaller, as places to go: linking out once live, faded with "Coming soon" before. Sign in, the light and dark
  * switch and the account sit in the app's own bar, never in the rail. On a phone the rail is hidden and DockButton, in
  * the bar, opens the other apps over the page. Styles: .dock* in harbor.css.
+ *
+ * Given `inUse` (the signed-in person's apps: their grants at account.longlinelabs.com, which the app's server reads
+ * from the account site) with at least one app besides this one, the person's own apps stay at full strength, say
+ * "You use this" and lead to the signed-in app where it has an address (appUrl); the others go quiet (mark faded, name
+ * muted) but remain links to their sites. Without it, or when it names only this app, the Dock is exactly as above.
  */
 
 function AppMark({ app, size }: { app: HarborApp; size: number }) {
@@ -20,14 +25,14 @@ function AppMark({ app, size }: { app: HarborApp; size: number }) {
   );
 }
 
-function OtherApp({ app, withName }: { app: HarborApp; withName: boolean }) {
+function OtherApp({ app, withName, mine, quiet }: { app: HarborApp; withName: boolean; mine: boolean; quiet: boolean }) {
   const label = withName ? (
     <span className="dock-app-text">
       <span className="dock-app-name">{app.name}</span>
-      {!app.live && <span className="dock-soon">Coming soon</span>}
+      {!app.live ? <span className="dock-soon">Coming soon</span> : mine && <span className="dock-yours">You use this</span>}
     </span>
   ) : (
-    <span className="sr">{app.live ? app.name : `${app.name}, coming soon`}</span>
+    <span className="sr">{!app.live ? `${app.name}, coming soon` : mine ? `${app.name}, you use this` : app.name}</span>
   );
   const kind = `dock-app${withName ? " with-name" : ""}`;
   if (!app.live || !app.url)
@@ -39,23 +44,32 @@ function OtherApp({ app, withName }: { app: HarborApp; withName: boolean }) {
         {label}
       </span>
     );
+  const href = (mine ? ownAppHref(app) : app.url) ?? app.url;
   return (
-    <a href={app.url} title={app.name} className={kind}>
-      <AppMark app={app} size={26} />
+    <a href={href} title={mine ? `${app.name}: you use this` : app.name} className={quiet ? `${kind} dock-quiet` : kind} data-in-use={mine ? "" : undefined}>
+      {quiet ? (
+        <span className="dock-faded">
+          <AppMark app={app} size={26} />
+        </span>
+      ) : (
+        <AppMark app={app} size={26} />
+      )}
       {label}
     </a>
   );
 }
 
-function OtherApps({ current, withNames }: { current: AppKey; withNames: boolean }) {
+function OtherApps({ current, withNames, inUse }: { current: AppKey; withNames: boolean; inUse?: AppsInUse | null }) {
+  const marked = appsToMark(inUse, current);
   return (
     <nav aria-label={`Other ${company} apps`} className="dock-apps">
       {withNames && <p className="dock-heading">Other apps</p>}
       {apps
         .filter((app) => app.key !== current)
-        .map((app) => (
-          <OtherApp key={app.key} app={app} withName={withNames} />
-        ))}
+        .map((app) => {
+          const mine = !!marked?.has(app.key);
+          return <OtherApp key={app.key} app={app} withName={withNames} mine={mine} quiet={!!marked && !mine} />;
+        })}
     </nav>
   );
 }
@@ -71,17 +85,20 @@ export function DockCorner({ current, href = "/" }: { current: AppKey; href?: st
   );
 }
 
-/** The rail at the left on a computer or tablet, under the bar. `belowBar`: under a 64px bar that stays at the top. */
-export function Dock({ current, belowBar = false }: { current: AppKey; belowBar?: boolean }) {
+/**
+ * The rail at the left on a computer or tablet, under the bar. `belowBar`: under a 64px bar that stays at the top.
+ * `inUse`: the signed-in person's apps, when the app knows them (see above).
+ */
+export function Dock({ current, belowBar = false, inUse }: { current: AppKey; belowBar?: boolean; inUse?: AppsInUse | null }) {
   return (
     <aside className={`dock${belowBar ? " below-bar" : ""}`}>
-      <OtherApps current={current} withNames={false} />
+      <OtherApps current={current} withNames={false} inUse={inUse} />
     </aside>
   );
 }
 
-/** On a phone: a button in the bar that opens the other apps over the page. */
-export function DockButton({ current }: { current: AppKey }) {
+/** On a phone: a button in the bar that opens the other apps over the page. `inUse` as for Dock. */
+export function DockButton({ current, inUse }: { current: AppKey; inUse?: AppsInUse | null }) {
   const [open, setOpen] = useState(false);
   useEffect(() => {
     if (!open) return;
@@ -100,7 +117,7 @@ export function DockButton({ current }: { current: AppKey }) {
         <div className="dock-overlay">
           <button type="button" aria-label="Close" className="dock-backdrop" onClick={() => setOpen(false)} />
           <div className="dock-panel">
-            <OtherApps current={current} withNames />
+            <OtherApps current={current} withNames inUse={inUse} />
           </div>
         </div>
       )}
