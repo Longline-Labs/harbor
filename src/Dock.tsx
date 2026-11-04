@@ -12,9 +12,10 @@ import { Mark } from "./Mark";
  * the bar, opens the other apps over the page. Styles: .dock* in harbor.css.
  *
  * Given `inUse` (the signed-in person's apps: their grants at account.longlinelabs.com, which the app's server reads
- * from the account site) with at least one app besides this one, the person's own apps stay at full strength, say
- * "You use this" and lead to the signed-in app where it has an address (appUrl); the others go quiet (mark faded, name
- * muted) but remain links to their sites. Without it, or when it names only this app, the Dock is exactly as above.
+ * from the account site) with at least one app besides this one, the person's own apps stay at full strength and lead
+ * to the signed-in app where it has an address (appUrl); the others go quiet (mark faded, name muted) but remain links
+ * to their sites. No label says which is which: the fade alone tells (Brandon, November 4, 2026). Without it, or when
+ * it names only this app, the Dock is exactly as above.
  */
 
 function AppMark({ app, size }: { app: HarborApp; size: number }) {
@@ -29,10 +30,10 @@ function OtherApp({ app, withName, mine, quiet }: { app: HarborApp; withName: bo
   const label = withName ? (
     <span className="dock-app-text">
       <span className="dock-app-name">{app.name}</span>
-      {!app.live ? <span className="dock-soon">Coming soon</span> : mine && <span className="dock-yours">You use this</span>}
+      {!app.live && <span className="dock-soon">Coming soon</span>}
     </span>
   ) : (
-    <span className="sr">{!app.live ? `${app.name}, coming soon` : mine ? `${app.name}, you use this` : app.name}</span>
+    <span className="sr">{app.live ? app.name : `${app.name}, coming soon`}</span>
   );
   const kind = `dock-app${withName ? " with-name" : ""}`;
   if (!app.live || !app.url)
@@ -46,7 +47,7 @@ function OtherApp({ app, withName, mine, quiet }: { app: HarborApp; withName: bo
     );
   const href = (mine ? ownAppHref(app) : app.url) ?? app.url;
   return (
-    <a href={href} title={mine ? `${app.name}: you use this` : app.name} className={quiet ? `${kind} dock-quiet` : kind} data-in-use={mine ? "" : undefined}>
+    <a href={href} title={app.name} className={quiet ? `${kind} dock-quiet` : kind} data-in-use={mine ? "" : undefined}>
       {quiet ? (
         <span className="dock-faded">
           <AppMark app={app} size={26} />
