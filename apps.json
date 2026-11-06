@@ -22,7 +22,7 @@
       "key": "packetskipper",
       "name": "PacketSkipper",
       "url": "https://packetskipper.com",
-      "appUrl": "https://app.packetskipper.com",
+      "appUrl": "https://packetskipper.com",
       "live": true,
       "description": "Board packets, minutes, action items, all in one place."
     },
@@ -30,7 +30,7 @@
       "key": "ballastbook",
       "name": "BallastBook",
       "url": "https://ballastbook.com",
-      "appUrl": null,
+      "appUrl": "https://app.ballastbook.com",
       "live": true,
       "description": "A simple, straightforward Annual Budget builder for each of your Associations."
     },
@@ -38,7 +38,7 @@
       "key": "shipshapefiles",
       "name": "ShipShape",
       "url": "https://shipshapefiles.com",
-      "appUrl": null,
+      "appUrl": "https://app.shipshapefiles.com",
       "live": true,
       "description": "Automatically renames every file to your own custom naming convention, so documents are always easy to find."
     },
@@ -46,7 +46,7 @@
       "key": "aboveboard",
       "name": "AboveBoard",
       "url": "https://aboveboarddocs.com",
-      "appUrl": null,
+      "appUrl": "https://app.aboveboarddocs.com",
       "live": true,
       "description": "An easy-to-use public database where each Association can post its Governing Documents, minutes and records."
     }

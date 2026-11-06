@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.1 — 2026-11-06
+
+- **apps.json, `appUrl`**: every app now has its signed-in address, where the Dock sends a person's own apps:
+  PacketSkipper's is packetskipper.com (its site and its app are one; app.packetskipper.com never existed), and
+  BallastBook, ShipShape and AboveBoard opened on November 6 at app.ballastbook.com, app.shipshapefiles.com and
+  app.aboveboarddocs.com. No prop or export changes; nothing changes for an app that doesn't pass `inUse`. Matches
+  `@longline/web` 0.5.1.
+
 ## 0.5.0 — 2026-11-06
 
 Built on 0.3.1 as "0.4.0" on `dock-apps-in-use` (November 3), while 0.4.0 had already been tagged on October 31;

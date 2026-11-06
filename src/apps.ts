@@ -8,7 +8,7 @@ export interface HarborApp {
   name: string;
   /** The app's public address, or null until it has one. */
   url: string | null;
-  /** Where the signed-in app lives (app.coifish.com), or null where there is none yet. */
+  /** Where the signed-in app lives (app.coifish.com; packetskipper.com is both site and app), or null where there is none. */
   appUrl: string | null;
   /**
    * True once the app's site is up: the Dock and the family section link to it (as coifish.com does, October 25,
