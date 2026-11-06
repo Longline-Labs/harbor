@@ -6,6 +6,7 @@
       "key": "coifish",
       "name": "Coifish",
       "url": "https://coifish.com",
+      "appUrl": "https://app.coifish.com",
       "live": true,
       "description": "Certificates of insurance for every vendor at every association, current and on file."
     },
@@ -13,6 +14,7 @@
       "key": "reelminder",
       "name": "ReelMinder",
       "url": "https://reelminders.com",
+      "appUrl": "https://app.reelminders.com",
       "live": true,
       "description": "Reminders for every association deadline, from insurance renewals to annual meeting notices."
     },
@@ -20,6 +22,7 @@
       "key": "packetskipper",
       "name": "PacketSkipper",
       "url": "https://packetskipper.com",
+      "appUrl": "https://app.packetskipper.com",
       "live": true,
       "description": "Board packets, minutes, action items, all in one place."
     },
@@ -27,21 +30,24 @@
       "key": "ballastbook",
       "name": "BallastBook",
       "url": "https://ballastbook.com",
-      "live": false,
+      "appUrl": null,
+      "live": true,
       "description": "A simple, straightforward Annual Budget builder for each of your Associations."
     },
     {
       "key": "shipshapefiles",
       "name": "ShipShape",
       "url": "https://shipshapefiles.com",
-      "live": false,
+      "appUrl": null,
+      "live": true,
       "description": "Automatically renames every file to your own custom naming convention, so documents are always easy to find."
     },
     {
       "key": "aboveboard",
       "name": "AboveBoard",
       "url": "https://aboveboarddocs.com",
-      "live": false,
+      "appUrl": null,
+      "live": true,
       "description": "An easy-to-use public database where each Association can post its Governing Documents, minutes and records."
     }
   ]

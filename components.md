@@ -34,6 +34,8 @@ The Dock makes six apps feel like one company. It appears, identically, in every
 - `Dock` (`belowBar` for a 64px bar that stays at the top, as on the public pages): the 56px rail under the corner, on `paper-raised`, listing the other apps from `apps.json`, in its order, marks at 26px with the name beneath, stacked at its capital (Packet / Skipper) to fit. A live app links to its site; one that isn't shows its mark faded (40%, greyscale), `Soon` under its name and no link. The hover tooltip stays as an extra, never as the only place a name appears. Hidden on phones and in print.
 - `DockButton`: on phones only, a four-tile apps button in the bar (not three lines, which mean the app's own menu) that opens the same list as a 232px panel from the left, titled "Other apps", with "Coming soon" under an app that isn't live. The panel's Close button, Escape, a tap outside or tabbing out of it closes it, and focus goes to Close on opening and back to the button on closing. It scrolls on a screen too short to hold it.
 
+`Dock` and `DockButton` also take `inUse`: the signed-in person's apps as keys (the apps they have let sign them in with their Longline Labs account, which the app's server reads from the account site's `/api/apps-in-use`, signed with the key `setup:client` wrote into the app's settings). With at least one app besides this one in the list, the person's own apps stay at full strength and lead to the signed-in app (`appUrl` in `apps.json`) where it has one; the others go quiet (`dock-quiet`: faded mark, muted name) but remain links to their sites. No label says which is which: the fade alone tells (Brandon, November 4, 2026). Leave it out, or pass null, when nobody is signed in or the list couldn't be read: the Dock must never break a page, so it then shows the other apps as it always has. `appsToMark` and `ownAppHref` do the same sums for an app drawing its own rail.
+
 The Dock holds no in-app navigation, no account and no theme switch, and scrolls only on a screen too short to hold it.
 
 ## FormField
@@ -58,7 +60,7 @@ The light and dark switch in the bar of every app and site: a 44 by 24 track on 
 
 ## The family list (apps.json)
 
-`apps.json` is the one list of the six apps, in longline order: name, web address, whether its site is up (`live`), and a one-line description. The Dock and the family section both read it, so every app always agrees. When an app's site goes up, set its `live` to true here, bump the version, and update the other apps. Whether an app takes sign-ups is its own setting, not this one.
+`apps.json` is the one list of the six apps, in longline order: name, web address, the signed-in app's address where there is one (`appUrl`), whether its site is up (`live`), and a one-line description. The Dock and the family section both read it, so every app always agrees. When an app's site goes up, set its `live` to true here, bump the version, and update the other apps. Whether an app takes sign-ups is its own setting, not this one.
 
 ## Public site header
 

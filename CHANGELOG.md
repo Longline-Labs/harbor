@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.5.0 — 2026-11-06
+
+Built on 0.3.1 as "0.4.0" on `dock-apps-in-use` (November 3), while 0.4.0 had already been tagged on October 31;
+merged onto 0.4.0 and released as 0.5.0. Everything in 0.4.0 below is kept: the names in the rail, the Close button.
+
+- **Dock**: `Dock` and `DockButton` take `inUse`, the signed-in person's apps as keys (their grants at
+  account.longlinelabs.com, which the app's own server reads from the account site's `/api/apps-in-use`; single sign-in
+  plan, step 9). With at least one app besides the current one in the list, the person's own apps stay at full strength
+  and lead to the signed-in app where it has an address; the others go quiet (`dock-quiet`: mark faded as a coming-soon
+  one, name muted) but remain links to their sites. No label says which is which: the fade alone tells (Brandon,
+  November 4, 2026; a first draft said "You use this" under the name). A used app's link carries `data-in-use`. Without
+  the list, with a list that couldn't be read (null), or when the person uses only this app, the Dock is exactly as
+  before. `appsToMark` and `ownAppHref` are exported for an app drawing its own rail.
+- **apps.json**: each app has `appUrl`, the signed-in app's address (app.coifish.com, app.reelminders.com,
+  app.packetskipper.com; null for the three with none yet), which the Dock uses for a person's own apps. BallastBook,
+  ShipShape and AboveBoard are `live`: their websites are up (ballastbook.com since October 31, shipshapefiles.com and
+  aboveboarddocs.com since November 3; Brandon's word, as `@longline/web` 0.4.11 and 0.4.12 already record), so the
+  Dock links to them instead of saying "Coming soon". The apps themselves are still closed to sign-ups; that is each
+  site's own business.
+
 ## 0.4.0 — 2026-10-31
 
 Found in ReelMinder's review of October 31. No prop or export changes, so an app takes this by moving its pin; the rail and the phone button look different in every app that does.
