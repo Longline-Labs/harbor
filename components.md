@@ -46,6 +46,30 @@ Provide `label`, the control (input, select, textarea), optional `help`, and `er
 
 Labels above, never floating inside. Required fields are stated in the help text, not with an asterisk.
 
+## Help & support (0.6.0)
+
+One form for a question or a problem, the same in all six apps (Brandon, November 7, 2026).
+
+- **Signed in**: "Help & support" in the app's bar, beside Sign out, and in the phone menu (`SupportButton`, styled by
+  the app like its other bar buttons). It opens a dialog (`SupportProvider` in the signed-in layout holds it). Never in
+  the Dock, which holds no account.
+- **Signed out**: the public Help page's "Questions?" section shows the same form in the page (`SupportForm`, `who`
+  null), which also asks for an email address, with the app's Cloudflare Turnstile check passed in as `extra`. Without
+  the live bot-check keys the app leaves the form out and shows its support address alone.
+- **The form**: Subject, Message ("What were you doing, and what happened? A question is fine too."), Screenshot
+  (optional: one picture, 5 MB at most; Choose a picture, or paste), then one `body-sm` line on a hairline saying what
+  goes with it: the app, the company, the person's email, the page, the browser. Then `Send message` (primary) and
+  `Cancel` (quiet). Once sent, one line on `status-ok-tint`: "We got it. We answer within one business day."
+- **The send function**: the app's server action, `(data: FormData) => Promise<SupportSendResult>`. FormData keys:
+  `subject`, `message`, `screenshot` (File, optional), `page` (a path), `browser`, `reference` (optional); on the
+  public form also `email`, `name`, `company` and the bot check's `turnstile_token`. It returns `{ ok: true }` or
+  `{ ok: false, error, field? }`; the error is shown as written, beside the field it names.
+- **What the app does** (the same in all six): checks with `checkSupportInput`, sniffs the picture with
+  `supportImageKind`, allows five an hour per person (`SUPPORT_PER_HOUR`; on the public form also per address), saves
+  the message in its `support_messages` table first, then emails its support address (`supportEmail`, subject
+  "[Help & support] <App>: <subject>", reply-to the person, the picture attached) and the person (`supportReceipt`).
+  If Postmark is down the person is still told it went; the hourly job sends the emails later.
+
 ## StatusBadge
 
 Status for certificates (Coifish), reminders (ReelMinder) and action items (PacketSkipper) uses one badge with these tones: `ok`, `warn`, `danger`, `neutral`, and `info` for something waiting on the team (Coifish's "Pending review": `sea` on `sea-tint`, never a status colour).

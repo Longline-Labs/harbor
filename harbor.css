@@ -670,4 +670,367 @@
         display: none !important;
       }
   }
+
+  /* Help & support (0.6.0): the dialog, and the same form on a public Help page. A native <dialog> on paper-raised
+     with a hairline edge, radius-lg and shadow-float (the one place a shadow belongs); the fields are Harbor
+     FormFields; the buttons are Harbor's, drawn here so the form looks the same whatever an app calls its own. */
+  .support-dialog {
+    box-sizing: border-box;
+    width: min(560px, calc(100vw - 32px));
+    max-width: none;
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--paper-raised);
+    box-shadow: var(--shadow-float);
+    color: var(--ink);
+    overscroll-behavior: contain;
+  }
+
+  .support-dialog::backdrop {
+    background: color-mix(in oklab, var(--ink) 40%, transparent);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .support-dialog[open] {
+      animation: support-open 200ms ease-out;
+    }
+    @keyframes support-open {
+      from {
+        opacity: 0;
+        translate: 0 8px;
+      }
+    }
+    .support-btn,
+    .support-input,
+    .support-close {
+      transition:
+        background-color 150ms ease-out,
+        border-color 150ms ease-out,
+        color 150ms ease-out;
+    }
+  }
+
+  .support-panel {
+    padding: var(--space-5);
+  }
+
+  @media (max-width: 480px) {
+    .support-panel {
+      padding: var(--space-4);
+    }
+  }
+
+  .support-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .support-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  .support-close {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: -6px -10px 0 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .support-close:hover {
+      background: var(--paper-sunken);
+    }
+  }
+
+  .support-intro {
+    margin: var(--space-1) 0 var(--space-4);
+    color: var(--ink-muted);
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .support-intro a,
+  .support-suggest a {
+    color: var(--sea);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .support-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .support-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .support-field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .support-label {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .support-input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    background: var(--paper-sunken);
+    color: var(--ink);
+    font: inherit;
+  }
+
+  textarea.support-input {
+    min-height: 132px;
+    resize: vertical;
+  }
+
+  .support-input:focus-visible,
+  .support-btn:focus-visible,
+  .support-close:focus-visible,
+  .support-file:focus-visible + .support-btn {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  .support-input[aria-invalid="true"] {
+    border-color: var(--status-danger);
+  }
+
+  .support-help,
+  .support-along {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .support-along {
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--hairline);
+    overflow-wrap: anywhere;
+  }
+
+  .support-error {
+    margin: 0;
+    color: var(--status-danger);
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .support-error-form {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    background: var(--status-danger-tint);
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .support-suggest {
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--sea-tint);
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .support-suggest p,
+  .support-suggest ul {
+    margin: 0;
+  }
+
+  .support-suggest ul {
+    padding-left: var(--space-5);
+  }
+
+  .support-pick {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+  }
+
+  /* The file input stays in the page for the keyboard and screen readers; the button beside it is its label. */
+  .support-file {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .support-trap {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .support-shot {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-width: 0;
+    padding: var(--space-2);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--paper);
+  }
+
+  .support-shot-img {
+    flex: none;
+    width: 64px;
+    height: 48px;
+    object-fit: cover;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm);
+  }
+
+  .support-shot-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .support-shot-size {
+    margin-left: var(--space-1);
+    color: var(--ink-muted);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .support-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .support-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    box-sizing: border-box;
+    min-height: 36px;
+    padding: 0 14px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .support-btn.primary {
+    border-color: var(--sea);
+    background: var(--sea);
+    color: var(--on-sea);
+  }
+
+  .support-btn.quiet {
+    border-color: transparent;
+    color: var(--ink-muted);
+  }
+
+  .support-btn.sm {
+    min-height: 28px;
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  @media (hover: hover) {
+    .support-btn:hover {
+      background: var(--paper-sunken);
+      color: var(--ink);
+    }
+    .support-btn.primary:hover {
+      background: var(--sea);
+      color: var(--on-sea);
+      filter: brightness(1.12);
+    }
+  }
+
+  .support-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  @media (max-width: 480px) {
+    .support-actions .support-btn {
+      flex: 1;
+      min-height: 44px;
+    }
+  }
+
+  .support-sent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .support-sent-line {
+    margin: 0;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--status-ok-tint);
+    color: var(--status-ok);
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+  @media print {
+    .support-dialog {
+      display: none;
+    }
+  }
 }

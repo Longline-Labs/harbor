@@ -1,6 +1,6 @@
 {
   "name": "@longline/harbor",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Harbor: the design language shared by the Longline Labs apps (Coifish, ReelMinder, PacketSkipper, BallastBook, ShipShape, AboveBoard). Tokens, component styles, marks, the family list, and the shared React components.",
   "private": true,
   "license": "UNLICENSED",
@@ -14,6 +14,7 @@
   ],
   "exports": {
     ".": "./src/index.ts",
+    "./support": "./src/support.ts",
     "./tokens.css": "./tokens.css",
     "./harbor.css": "./harbor.css",
     "./apps.json": "./apps.json",
@@ -25,7 +26,8 @@
     "react-dom": "^19.0.0"
   },
   "scripts": {
-    "check": "tsc --noEmit -p tsconfig.json && node scripts/check-tokens.mjs"
+    "check": "tsc --noEmit -p tsconfig.json && node scripts/check-tokens.mjs",
+    "test": "node --experimental-strip-types --test src/support.test.ts"
   },
   "devDependencies": {
     "typescript": "^5.6.0",

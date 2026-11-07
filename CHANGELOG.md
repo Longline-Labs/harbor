@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.6.0 — 2026-11-07
+
+Help & support in every app (Brandon's question of November 7, 2026: "Should we add some kind of a support
+button/ticket option in each app?"; the recommendation he was given, built). No change to anything already exported,
+so an app takes this by moving its pin; nothing shows until the app puts the provider and the button in.
+
+- **`SupportProvider`, `SupportButton`, `useSupport`**: one Help & support dialog for the signed-in app. The provider
+  goes in the signed-in layout around the bar and the page, given `app`, `send` (the app's server action), `supportEmail`,
+  `who` (the company and the person's email) and `helpHref`. `SupportButton` reads "Help & support"; the app styles it
+  to sit with its own bar buttons, beside Sign out, and puts it in its phone menu too. The dialog lives in the provider,
+  so closing a phone menu never closes it. It is **not in the Dock**: the Dock holds no account (HARBOR.md), so the
+  entry sits with the account in the app's own bar, which is where "the account menu" is in all six apps.
+- **`SupportDialog`, `SupportForm`**: a native `<dialog>` (focus stays inside, Escape and the backdrop close it) holding
+  the form: Subject, Message, an optional screenshot (one picture, PNG, JPEG, WebP or GIF, 5 MB at most; it can be
+  pasted), one line saying what goes with it ("Sent with your message: AboveBoard, Harbor View Management,
+  pat@example.com, the page you're on (/documents), your browser (Safari 18 on Mac, window 1440 × 900)"), and
+  Send message. Once sent: "We got it. We answer within one business day." A draft closed unsent is kept until the
+  page changes. `SupportForm` alone, with `who` null, is the public Help page's form: it adds Your email, Your name and
+  Company, and takes `extra` (the app's bot check, inside the form, so its token is sent). `suggest` offers Help
+  sections while typing (Coifish's), `reference` sends an error page's reference along.
+- A picture over 3.5 MB is made smaller in the browser before it is sent (longest side 2560, then 1920, as a JPEG),
+  because Vercel refuses a request over 4.5 MB. The app's server action still accepts up to 5 MB.
+- **`@longline/harbor/support`** (new export, plain TypeScript, safe on the server): `SUPPORT_LIMITS`,
+  `SUPPORT_PER_HOUR` (5), `SUPPORT_SUBJECT_PREFIX` ("[Help & support]"), `SUPPORT_THANKS`, `cleanSupportText` (HTML
+  and invisible characters out), `checkSupportInput`, `supportPage` (a path, no query, tokens hidden),
+  `supportImageKind` (by the file's first bytes; never SVG), `describeBrowser`, `supportEmail` (the support inbox's
+  email, one shape in all six apps) and `supportReceipt` (the note to the person, which never repeats what they wrote).
+- **No network code in the package**: the form calls the `send` it is given. Saving, emailing, the rate limit and the
+  bot check are each app's.
+- Styles: `.support-*` in harbor.css (tokens only; the dialog is the one Harbor surface with `shadow-float`).
+- `npm test`: the shared rules (`src/support.test.ts`, Node's own test runner). Docs: `components.md`, `app-shell.md`.
+
 ## 0.5.1 — 2026-11-06
 
 - **apps.json, `appUrl`**: every app now has its signed-in address, where the Dock sends a person's own apps:

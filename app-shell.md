@@ -19,4 +19,6 @@ Tabs under the app bar, as app.coifish.com does (Vendors · Review · Certificat
 - Dates ISO, amounts right-aligned, IDs in `numeral`.
 - Empty states: `display-md` headline, one `body` sentence, one primary button. No illustrations.
 - Sign-in, help and settings pages are identical across the apps apart from the mark and wordmark.
+- Help & support (0.6.0): "Help & support" in the bar beside Sign out (and in the phone menu) opens the shared dialog;
+  the public Help page carries the same form. `components.md` → Help & support.
 - Emails the apps send use the same template: mark + wordmark at top, `sea` button, hairline footer with `LONGLINE LABS LLC` and the app's address; dark-file mark on the sea button if the mark appears on it.
