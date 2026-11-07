@@ -38,6 +38,9 @@ export const SUPPORT_PUBLIC_MAX_LINKS = 2;
  */
 export const SUPPORT_TRAP_FIELD = "website";
 
+/** The scheduled job leaves a message's emails alone this long, so it never races the request still sending them. */
+export const SUPPORT_RETRY_AFTER_MINUTES = 5;
+
 /** The pictures the form takes. Never SVG: it can carry a script. */
 export const SUPPORT_IMAGE_TYPES = ["image/png", "image/jpeg", "image/webp", "image/gif"] as const;
 export type SupportImageType = (typeof SUPPORT_IMAGE_TYPES)[number];
@@ -58,35 +61,74 @@ export type SupportSendResult = { ok: true } | { ok: false; error: string; field
 /** The send function an app hands the form: its own server action. FormData keys are listed in components.md. */
 export type SupportSend = (data: FormData) => Promise<SupportSendResult>;
 
-const CONTROL = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F​-‏‪-‮⁦-⁩]/g;
+// Characters removed from what people type: control characters (except tab and line breaks), the zero-width space, the
+// byte-order mark, and the direction overrides and isolates that can make text read differently from what it says.
+// The zero-width joiner and non-joiner stay: emoji families and Persian and Indic words need them.
+const CONTROL = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F\u200B\u202A-\u202E\u2066-\u2069\uFEFF]/g;
+
+// HTML elements a pasted page or email can carry. Only these, written as real tags, are removed: "<Enter>", "<error>",
+// "a<b and c>d" and "count<max" are ordinary writing and stay. The email escapes everything in any case; this keeps
+// the saved text readable.
+const ELEMENTS =
+  "a|abbr|b|blockquote|body|br|button|center|code|div|em|embed|font|form|h[1-6]|head|hr|html|i|iframe|img|input|label|li|link|meta|object|ol|option|p|pre|s|script|select|small|span|strike|strong|style|sub|sup|svg|table|tbody|td|textarea|tfoot|th|thead|title|tr|u|ul|video|audio|source|base|frame|frameset|math";
+// A tag: the element, then attributes that each have a value (a bare word, as in "<b and c>", is not taken for one).
+const TAG = new RegExp(
+  `</?(?:${ELEMENTS})(?:\\s+[a-z][\\w:-]*\\s*=\\s*(?:"[^"<>]*"|'[^'<>]*'|[^\\s"'<>=\`]+))*\\s*/?>`,
+  "gi",
+);
+// What's inside <script> and <style> goes with them.
+const SCRIPT_OR_STYLE = /<(script|style)\b[^<>]*>[\s\S]*?<\/\1\s*>/gi;
 
 /**
- * Plain text from what a person typed: HTML tags and comments removed, invisible and direction-changing characters
- * removed, Windows line ends made plain, at most one blank line in a row, trimmed. `oneLine` folds it onto one line
- * (a subject, a name). Nothing is cut short here: lengths are checked after, so a person is told rather than truncated.
+ * Plain text from what a person typed: HTML tags, comments, scripts and styles removed (real tags only, see TAG),
+ * invisible and direction-changing characters removed, Windows line ends made plain, at most one blank line in a row,
+ * trimmed. `oneLine` folds it onto one line (a subject, a name). Nothing is cut short here: lengths are checked after,
+ * so a person is told rather than truncated. Call it only on input already under twice its limit (checkSupportInput
+ * does), so a huge field never reaches it.
  */
 export function cleanSupportText(value: unknown, { oneLine = false }: { oneLine?: boolean } = {}): string {
   let text = typeof value === "string" ? value : "";
   text = text
     .replace(/\r\n?/g, "\n")
-    .replace(/<!--[\s\S]*?(-->|$)/g, "")
-    .replace(/<![^<>]*>/g, "")
-    .replace(/<\/?[a-z][a-z0-9-]*(?:\s[^<>]*)?\/?>/gi, "")
-    // A tag cut off before its ">" ("<img src=x onerror=..."), but never "x<y" in a sentence.
-    .replace(/<[a-z][a-z0-9-]*\s+[^<>]*=[^<>]*$/gi, "")
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/<!doctype[^<>]*>/gi, "")
+    .replace(SCRIPT_OR_STYLE, "")
+    .replace(TAG, "")
     .replace(CONTROL, "");
   text = oneLine ? text.replace(/\s+/g, " ") : text.replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n");
   return text.trim();
 }
 
-/** How many web addresses a text holds: https://…, www.…, or a bare name.ending such as evil.com. */
+// Endings a web address is likely to have. A file name ("minutes.pdf", "budget.xlsx") is not a web address.
+const ENDINGS =
+  "com|net|org|info|biz|co|io|us|uk|ca|au|de|fr|nl|eu|xyz|top|online|site|shop|store|app|dev|link|click|live|me|ly|to|ru|cn|tk|ml|ga|cf|gq|zip|mov|sbs|cfd|icu|club|vip|win|bid|loan|work|page|tech|website|space|fun|pro|gov|edu";
+const BARE_ADDRESS = new RegExp(`\\b[a-z0-9-]+(?:\\.[a-z0-9-]+)*\\.(?:${ENDINGS})\\b(?:/\\S*)?`, "gi");
+
+/** How many web addresses a text holds: https://…, www.…, or a name with a web ending such as evil.com. */
 export function countWebAddresses(text: string): number {
-  // Email addresses aren't web addresses: they are taken out first, so pat@example.com doesn't count as example.com.
-  const s = text.normalize("NFKC").replace(/\S+@\S+/g, " ");
-  return (s.match(/\bhttps?:\/\/\S+|\bwww\.\S+|\b[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,}(?:\/\S*)?/gi) ?? []).length;
+  let s = text.normalize("NFKC");
+  // Full addresses first (so http://x@evil.com counts), then email addresses out (pat@example.com is not a web address).
+  const full = s.match(/\bhttps?:\/\/\S+/gi)?.length ?? 0;
+  s = s.replace(/\bhttps?:\/\/\S+/gi, " ").replace(/\S+@\S+/g, " ");
+  const www = s.match(/\bwww\.\S+/gi)?.length ?? 0;
+  s = s.replace(/\bwww\.\S+/gi, " ");
+  return full + www + (s.match(BARE_ADDRESS)?.length ?? 0);
 }
 
-const EMAIL = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[a-z]{2,}$/i;
+/**
+ * The address check: plain ASCII, one @, no dots side by side or at either end of the name. Postmark refuses some
+ * addresses that looser checks let through, and the support email's Reply-To must be one it takes.
+ */
+const EMAIL = /^(?!\.)(?!.*\.\.)[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+(?<!\.)@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)*\.[A-Za-z]{2,}$/;
+
+/**
+ * An address as counted for the public form's "three a day" limit: lower case, without a +tag, so pat+1@ and pat+2@
+ * count as pat@. (Only for counting; the message keeps the address as typed.)
+ */
+export function supportAddressKey(email: string): string {
+  const [name = "", domain = ""] = email.trim().toLowerCase().split("@");
+  return `${name.split("+")[0]}@${domain}`;
+}
 
 export type SupportInput = {
   subject: string;
@@ -107,6 +149,17 @@ export type SupportChecked = { ok: true; value: Required<Omit<SupportInput, "ema
  * Page and browser are the form's own notes, so a bad one is dropped, never an error.
  */
 export function checkSupportInput(raw: Record<string, unknown>, { needEmail = false }: { needEmail?: boolean } = {}): SupportChecked {
+  // Far over the limit is refused before any cleaning, so a huge field can't keep the server busy.
+  const tooLong: [SupportField, unknown, number][] = [
+    ["subject", raw.subject, SUPPORT_LIMITS.subject],
+    ["message", raw.message, SUPPORT_LIMITS.message],
+    ["email", raw.email, SUPPORT_LIMITS.email],
+    ["name", raw.name, SUPPORT_LIMITS.name],
+    ["company", raw.company, SUPPORT_LIMITS.company],
+  ];
+  for (const [field, value, limit] of tooLong)
+    if (typeof value === "string" && value.length > limit * 2) return { ok: false, field, error: `That ${field === "email" ? "email address" : field} is too long.` };
+  for (const extra of [raw.page, raw.browser, raw.reference]) if (typeof extra === "string" && extra.length > 1000) return { ok: false, field: "form", error: "Something in the form is too long." };
   const subject = cleanSupportText(raw.subject, { oneLine: true });
   const message = cleanSupportText(raw.message);
   const L = SUPPORT_LIMITS;
@@ -264,8 +317,9 @@ export function supportEmail(f: SupportEmailFacts): { subject: string; text: str
 }
 
 /**
- * The words of the note the person receives (each app puts them in its own email frame). It never repeats what they
- * wrote: on the public form anyone can type any address, so echoing the text would let the form send strangers mail.
+ * The words of the note the person receives (each app puts them in its own email frame). Sent only for a message from
+ * the signed-in app, to the account's own confirmed address: the public form says thanks on the screen and sends no
+ * email, since anyone can type any address there (the bot-and-spam spec, section 7). It never repeats what they wrote.
  */
 export function supportReceipt(appName: string, supportAddress: string): { subject: string; paragraphs: string[] } {
   return {

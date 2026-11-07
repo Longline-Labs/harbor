@@ -1,19 +1,38 @@
 // Checks for the shared Help & support rules (npm test). Run by Node's own test runner; no network, no React.
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { SUPPORT_LIMITS, checkSupportInput, countWebAddresses, cleanSupportText, describeBrowser, supportEmail, supportEmailSubject, supportImageKind, supportPage, supportReceipt, supportReference } from "./support.ts";
+import { SUPPORT_LIMITS, checkSupportInput, countWebAddresses, supportAddressKey, cleanSupportText, describeBrowser, supportEmail, supportEmailSubject, supportImageKind, supportPage, supportReceipt, supportReference } from "./support.ts";
 
 test("HTML, comments and invisible characters are removed; line ends and blank lines tidied", () => {
-  assert.equal(cleanSupportText("<b>Hi</b> there<script>alert(1)</script>"), "Hi therealert(1)");
+  assert.equal(cleanSupportText("<b>Hi</b> there<script>alert(1)</script>"), "Hi there");
+  assert.equal(cleanSupportText('<a href="https://x.example" target=_blank>link</a> <img src=x onerror=alert(1)>'), "link");
   assert.equal(cleanSupportText("a<!-- hidden -->b"), "ab");
   assert.equal(cleanSupportText("one\r\n\r\n\r\n\r\ntwo  \nthree"), "one\n\ntwo\nthree");
   assert.equal(cleanSupportText("a‮b​c\u0007d"), "abcd");
   assert.equal(cleanSupportText("  line\none \t two ", { oneLine: true }), "line one two");
-  assert.equal(cleanSupportText("<img src=x onerror=alert(1)"), "");
   assert.equal(cleanSupportText("3 < 5 and 7 > 2"), "3 < 5 and 7 > 2");
   assert.equal(cleanSupportText("if x<y then the total<budget"), "if x<y then the total<budget");
+  // Ordinary writing that looks a little like HTML stays as it is (the review of November 7, 2026).
+  assert.equal(cleanSupportText("if a<b and c>d"), "if a<b and c>d");
+  assert.equal(cleanSupportText("Press <Enter>"), "Press <Enter>");
+  assert.equal(cleanSupportText("It says <error>."), "It says <error>.");
+  assert.equal(cleanSupportText("When count<max the total = wrong.\n\nThen more."), "When count<max the total = wrong.\n\nThen more.");
+  // Emoji families and Persian words keep their joiners.
+  assert.equal(cleanSupportText("👨\u200D👩\u200D👧 می\u200Cخواهم"), "👨\u200D👩\u200D👧 می\u200Cخواهم");
   assert.equal(cleanSupportText("<!DOCTYPE html><p class='a'>Hi</p><br/>"), "Hi");
   assert.equal(cleanSupportText(undefined), "");
+});
+
+test("cleaning stays quick on long, awkward input", () => {
+  const nasty = "<b" + " ".repeat(9000) + "x" + "<a ".repeat(3000) + "count<max = ".repeat(500);
+  const start = performance.now();
+  cleanSupportText(nasty);
+  assert.ok(performance.now() - start < 200, "under 200 ms");
+});
+
+test("a field far over its limit is refused before cleaning", () => {
+  assert.deepEqual(checkSupportInput({ subject: "Hi", message: "x".repeat(10_001) }), { ok: false, field: "message", error: "That message is too long." });
+  assert.equal((checkSupportInput({ subject: "s".repeat(301), message: "Hi" }) as { field: string }).field, "subject");
 });
 
 test("a message needs a subject and a few words, within the limits", () => {
@@ -35,6 +54,9 @@ test("the public form needs a good email address; name and company are optional"
   assert.equal((checkSupportInput({ subject: "Hi", message: "Hello" }, { needEmail: true }) as { field: string }).field, "email");
   assert.equal((checkSupportInput({ subject: "Hi", message: "Hello", email: "not an address" }, { needEmail: true }) as { field: string }).field, "email");
   assert.equal((checkSupportInput({ subject: "Hi", message: "Hello", email: "a@b.co", name: "n".repeat(101) }, { needEmail: true }) as { field: string }).field, "name");
+  for (const bad of ["jöhn@x.co", "a..b@x.co", ".a@x.co", "a.@x.co", "a@x", "a@-x.co"])
+    assert.equal((checkSupportInput({ subject: "Hi", message: "Hello", email: bad }, { needEmail: true }) as { field: string }).field, "email", bad);
+  assert.equal(supportAddressKey("Pat+help@Example.com"), "pat@example.com");
   const ok = checkSupportInput({ subject: "Hi", message: "Hello", email: " Pat@Example.com ", name: "" }, { needEmail: true });
   assert.ok(ok.ok && ok.value.email === "pat@example.com" && ok.value.name === undefined);
 });
@@ -43,6 +65,9 @@ test("web addresses are counted, and the public form takes at most two", () => {
   assert.equal(countWebAddresses("See https://a.example/x and www.b.example and evil.com/offer"), 3);
   assert.equal(countWebAddresses("Write to pat@example.com about 3.5 MB files"), 0);
   assert.equal(countWebAddresses("app.aboveboarddocs.com/harbor-view"), 1);
+  // File names aren't web addresses; a full address with an @ in it still is.
+  assert.equal(countWebAddresses("minutes.pdf, bylaws.docx and budget.xlsx"), 0);
+  assert.equal(countWebAddresses("http://x@evil.com and evil.zip"), 2);
   assert.equal((checkSupportInput({ subject: "Hi", message: "a.com b.com c.com", email: "x@y.co" }, { needEmail: true }) as { field: string }).field, "message");
   assert.equal(checkSupportInput({ subject: "Hi", message: "a.com b.com", email: "x@y.co" }, { needEmail: true }).ok, true);
   // Signed in, the person is known; links in a bug report are fine.

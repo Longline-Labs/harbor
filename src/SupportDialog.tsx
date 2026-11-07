@@ -415,6 +415,9 @@ export function SupportDialog({ open, onClose, helpHref = "/help", ...form }: Di
   const [round, setRound] = useState(0);
   const [opens, setOpens] = useState(0);
   const sent = useRef(false);
+  // Where the last press began: a click that ends on the backdrop closes the dialog only if it began there too, so
+  // selecting text in the message and letting go outside the panel doesn't close it.
+  const pressedBackdrop = useRef(false);
   useEffect(() => {
     const d = ref.current;
     if (!d) return;
@@ -440,9 +443,11 @@ export function SupportDialog({ open, onClose, helpHref = "/help", ...form }: Di
       className="support-dialog"
       aria-labelledby={titleId}
       onClose={close}
+      onPointerDown={(e) => (pressedBackdrop.current = e.target === e.currentTarget)}
       onClick={(e) => {
         // A click on the backdrop (the dialog element itself, outside its panel) closes it.
-        if (e.target === e.currentTarget) close();
+        if (e.target === e.currentTarget && pressedBackdrop.current) close();
+        pressedBackdrop.current = false;
       }}
     >
       <div className="support-panel">
@@ -457,7 +462,12 @@ export function SupportDialog({ open, onClose, helpHref = "/help", ...form }: Di
           </button>
         </div>
         <p className="support-intro">
-          Ask a question or tell us what went wrong. Many answers are already on the <a href={helpHref}>Help page</a>.
+          Ask a question or tell us what went wrong. Many answers are already on the{" "}
+          {/* A new tab, so what has been typed here stays. */}
+          <a href={helpHref} target="_blank" rel="noopener">
+            Help page
+          </a>
+          .
         </p>
         <SupportForm key={round} {...form} refreshKey={opens} onSent={() => (sent.current = true)} onClose={close} />
       </div>
@@ -512,7 +522,15 @@ export function SupportButton({ className, children = "Help & support", onOpen }
       type="button"
       className={className}
       aria-haspopup="dialog"
-      onClick={() => {
+      onClick={(e) => {
+        // In a phone menu: close the menu first. A <details> menu is closed here, its summary (the Menu button) taking
+        // focus so it gets focus back when the dialog closes; other menus can listen for "harbor-support-open".
+        const menu = e.currentTarget.closest("details");
+        if (menu?.open) {
+          menu.open = false;
+          menu.querySelector("summary")?.focus();
+        }
+        window.dispatchEvent(new Event("harbor-support-open"));
         onOpen?.();
         open();
       }}

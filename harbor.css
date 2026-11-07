@@ -818,6 +818,8 @@
     background: var(--paper-sunken);
     color: var(--ink);
     font: inherit;
+    /* 16px, so a phone doesn't zoom the page when a field is tapped. */
+    font-size: 16px;
   }
 
   textarea.support-input {
