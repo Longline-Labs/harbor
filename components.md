@@ -65,10 +65,13 @@ One form for a question or a problem, the same in all six apps (Brandon, Novembe
   public form also `email`, `name`, `company` and the bot check's `turnstile_token`. It returns `{ ok: true }` or
   `{ ok: false, error, field? }`; the error is shown as written, beside the field it names.
 - **What the app does** (the same in all six): checks with `checkSupportInput`, sniffs the picture with
-  `supportImageKind`, allows five an hour per person (`SUPPORT_PER_HOUR`; on the public form also per address), saves
+  `supportImageKind`, allows five an hour per person (`SUPPORT_PER_HOUR`; on the public form per network, and three a day per typed
+  address, `SUPPORT_PUBLIC_PER_ADDRESS_PER_DAY`), saves
   the message in its `support_messages` table first, then emails its support address (`supportEmail`, subject
-  "[Help & support] <App>: <subject>", reply-to the person, the picture attached) and the person (`supportReceipt`).
-  If Postmark is down the person is still told it went; the hourly job sends the emails later.
+  "[Help & support] <App>: <subject>", reply-to the person, the picture attached) and, for a signed-in message only, the
+  person (`supportReceipt`, to the account's confirmed address; the public form sends no email, the screen says thanks).
+  Limits are counted before saving, each request counting up to its own entry. If Postmark is down the person is still
+  told it went; the scheduled job sends the emails later (messages over five minutes old, each claimed first).
 
 ## StatusBadge
 

@@ -26,7 +26,14 @@ so an app takes this by moving its pin; nothing shows until the app puts the pro
   `SUPPORT_PER_HOUR` (5), `SUPPORT_SUBJECT_PREFIX` ("[Help & support]"), `SUPPORT_THANKS`, `cleanSupportText` (HTML
   and invisible characters out), `checkSupportInput`, `supportPage` (a path, no query, tokens hidden),
   `supportImageKind` (by the file's first bytes; never SVG), `describeBrowser`, `supportEmail` (the support inbox's
-  email, one shape in all six apps) and `supportReceipt` (the note to the person, which never repeats what they wrote).
+  email, one shape in all six apps) and `supportReceipt` (the note to the person, for signed-in messages only, which
+  never repeats what they wrote). Also `supportAddressKey`, `countWebAddresses`, `SUPPORT_TRAP_FIELD`,
+  `SUPPORT_PUBLIC_PER_ADDRESS_PER_DAY`, `SUPPORT_PUBLIC_MAX_LINKS` and `SUPPORT_RETRY_AFTER_MINUTES` for the public
+  form's rules (the bot-and-spam spec, section 7).
+- After an independent review the same day: only real HTML tags are removed (ordinary writing like "<Enter>" stays), a
+  field far over its limit is refused before cleaning, the email check is plain ASCII, file names aren't counted as web
+  addresses, the fields are 16px (no zoom on a phone), the Help page link opens a new tab, the backdrop closes the
+  dialog only when the press began there, and the button closes a `<details>` phone menu around it.
 - **No network code in the package**: the form calls the `send` it is given. Saving, emailing, the rate limit and the
   bot check are each app's.
 - Styles: `.support-*` in harbor.css (tokens only; the dialog is the one Harbor surface with `shadow-float`).

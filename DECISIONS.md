@@ -16,5 +16,6 @@ Choices made in the Harbor package, in plain English. **please confirm** marks t
   refuses a request over 4.5 MB. The limit a person sees stays 5 MB, as the brief says.
 - **The public form's extra rules** come from the bot-and-spam audit's spec (`../../research/bot-spam-2026-11-07/FIX-SPEC.md`,
   section 7): a hidden trap field (`website`), at most two web addresses in a message, three a day per typed address.
-- **The person's note never repeats what they typed** (the same spec): fixed words with "We got it. We answer within
-  one business day."
+- **The person's note never repeats what they typed, and goes only to a signed-in person's account address** (the same
+  spec): fixed words with "We got it. We answer within one business day." The public form shows those words on the
+  screen and sends no email, since anyone can type any address there (please confirm).
