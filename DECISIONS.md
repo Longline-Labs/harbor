@@ -7,11 +7,10 @@ Choices made in the Harbor package, in plain English. **please confirm** marks t
 - **Harbor takes the website copy review's decisions** (J1 to J3, Brandon: "take all suggestions"): the new family line,
   lowercase association, board, annual budget, and governing documents, and the three rewritten cards, in the same words
   as `@longline/web` 0.5.3.
-- **Coifish, ReelMinder, and PacketSkipper keep Harbor's shorter lines** (please confirm). They differ from the website
-  cards, but the review flagged nothing in them, and an app can quote them in a sentence: PacketSkipper's Settings says
-  "ReelMinder is a separate app from the same family: reminders for every association deadline, from insurance renewals
-  to annual meeting notices." The website card ("Tracks every association deadline… and reminds you before each one.")
-  would read there too, if Brandon wants one wording everywhere.
+- **Coifish, ReelMinder, and PacketSkipper keep Harbor's shorter lines** (Brandon confirmed, November 7, 2026: "Keep
+  shorter lines"). They differ from the website cards, but the review flagged nothing in them, and an app can quote them
+  in a sentence: PacketSkipper's Settings says "ReelMinder is a separate app from the same family: reminders for every
+  association deadline, from insurance renewals to annual meeting notices."
 
 ## Help & support (0.6.0, November 7, 2026)
 
