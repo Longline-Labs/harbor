@@ -10,7 +10,10 @@ Newest first. Releases are in `CHANGELOG.md`; this file says where work stands.
 - Tried in AboveBoard (its branch `claude/help-support`, Harbor unpacked from `npm pack` into its node_modules): the
   dialog in light and dark at 1280 px and phone width, a message with a picture, the public Help page's form with the
   Turnstile test widget. Screenshots: `../../research/help-support-2026-11-07/screenshots/`.
-- The other five apps take it on their own `claude/help-support` branches.
+- All six apps take it on their own `claude/help-support` branches, committed and tested (Nov 7, 2026): AboveBoard
+  8efde0e, BallastBook 0dbdee8, ReelMinder 025acf6, ShipShape d485c0c, PacketSkipper e0d753b, Coifish 8b575e6 (Coifish
+  moves from 0.1.1; none of harbor.css's classes are used by its markup, so nothing on screen changes). The plan and the
+  choices for Brandon: `../../research/help-support-2026-11-07/README.md`.
 - An independent review found problems in the text cleaning, the link count, the email check and the dialog; fixed in
   510f3fc (CHANGELOG, 0.6.0, "After an independent review").
 
