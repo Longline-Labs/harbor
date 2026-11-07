@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.6.1 — 2026-11-07
+
+Harbor's app list now says what the websites say. On November 7, 2026 Brandon took every suggestion in the website copy
+review (`research/copy-review-2026-11-07/REPORT.md`, J1 to J3), published in `@longline/web` 0.5.3; Harbor's own
+`apps.json` still had the old words. Wording only: nothing exported changes shape, so an app takes this by moving its pin.
+
+- **`familyLine`** is "Six small apps from Longline Labs, each built to work the same way." (J2; it was "Apps for
+  community association managers, built to work the same way.").
+- **Three descriptions are the website cards word for word** (J1, J3): BallastBook "A simple annual budget builder for
+  each of your associations."; ShipShape "Renames every file to your company's own naming convention, so documents are
+  always easy to find." (it asks and never guesses, so not "Automatically"); AboveBoard "One public page for each
+  association's governing documents, minutes, and records." (a public page the manager posts, not "a public database"
+  each association posts to; with a serial comma).
+- Coifish, ReelMinder, and PacketSkipper keep Harbor's shorter lines, which already wrote association and board in
+  lowercase.
+- **`FamilySection`'s heading** is "Apps for community association managers" (J1, sentence case, as `@longline/web`'s).
+  No app uses Harbor's `FamilySection` today: every website draws the section with `@longline/web`'s.
+- Docs: the same heading in `components.md`, `site.md`, `HARBOR.md`, and the `harbor.css` comment; `components.md` says
+  how the descriptions follow the website cards, and its home-page hero says "No credit card needed." (J4).
+
+**Where it shows.** Almost nowhere yet: the Dock and the sign-in site's app strip show names and addresses only,
+Coifish's Dock reads `@longline/web`, and ShipShape's Home card writes its own short phrases. The one description an app
+quotes is ReelMinder's, in PacketSkipper's Settings ("ReelMinder is a separate app from the same family: reminders for
+every association deadline…"), and it hasn't changed. The release keeps the next app that reads a description from
+showing the old words.
+
 ## 0.6.0 — 2026-11-07
 
 Help & support in every app (Brandon's question of November 7, 2026: "Should we add some kind of a support

@@ -87,7 +87,7 @@ The light and dark switch in the bar of every app and site: a 44 by 24 track on 
 
 ## The family list (apps.json)
 
-`apps.json` is the one list of the six apps, in longline order: name, web address, the signed-in app's address where there is one (`appUrl`), whether its site is up (`live`), and a one-line description. The Dock and the family section both read it, so every app always agrees. When an app's site goes up, set its `live` to true here, bump the version, and update the other apps. Whether an app takes sign-ups is its own setting, not this one.
+`apps.json` is the one list of the six apps, in longline order: name, web address, the signed-in app's address where there is one (`appUrl`), whether its site is up (`live`), and a one-line description, plus `familyLine`, the one line about the family. The Dock and the family section both read it, so every app always agrees. The Dock shows names and addresses only. The descriptions follow the websites' family cards (`@longline/web`'s `apps.json`): association, board, annual budget, and governing documents in lowercase, and no claim an app's own site doesn't make. BallastBook's, ShipShape's, and AboveBoard's are the website cards word for word; Coifish, ReelMinder, and PacketSkipper keep shorter lines of their own, since a sentence in an app can quote them (PacketSkipper's Settings quotes ReelMinder's). When an app's site goes up, set its `live` to true here, bump the version, and update the other apps. Whether an app takes sign-ups is its own setting, not this one.
 
 ## Public site header
 
@@ -99,13 +99,13 @@ The public pages' version of the Dock: a 56px column on `paper-raised` under the
 
 ## Public home page
 
-- Hero in two columns. Left: an eyebrow line in `sea` (the app's short promise, such as "Stop fishing for COIs."), the headline in `display-xl` (Fraunces, larger on wide screens), a `body` paragraph, then the primary `Start your 30-day free trial` with "No credit card required." beside it. Right: a preview of the app in a plain browser frame (address bar with the app's address), using made-up example data, with the caption "Example with made-up …".
+- Hero in two columns. Left: an eyebrow line in `sea` (the app's short promise, such as "Stop fishing for COIs."), the headline in `display-xl` (Fraunces, larger on wide screens), a `body` paragraph, then the primary `Start your 30-day free trial` with "No credit card needed." beside it. Right: a preview of the app in a plain browser frame (address bar with the app's address), using made-up example data, with the caption "Example with made-up …".
 - Sections below: a `display-md` title with a `body` line under it, then cards or a figure, in the order `site.md` gives. Content sits in a 1100px column.
 - Before an app opens to customers, every `Start free trial` button and `Sign in` link is replaced by an "Opening soon" badge or line (PacketSkipper's `SIGNUPS` setting does this).
 
-## Apps for Community Association Managers (family section)
+## Apps for community association managers (family section)
 
-The last section of every public home page, above the footer, on a `hairline` rule. Title "Apps for Community Association Managers" in `display-md`, as on coifish.com (it was "From LONGLINE LABS LLC" with `apps.json`'s `familyLine` beneath; coifish.com dropped the line). Then one card per app in `apps.json` order (three to a row, stacked on phones): the mark (36px) and the name in Fraunces 500, the description in `ink-muted`, and a `label` at the bottom: "You are here" on the current app, "Coming soon" when not live, otherwise a link "Visit coifish.com" (the app's address, in the same tab). Cards are standard Harbor cards; no accent colors. `FamilySection` draws it, given `current`.
+The last section of every public home page, above the footer, on a `hairline` rule. Title "Apps for community association managers" in `display-md`, in sentence case as the websites have it since `@longline/web` 0.5.3 (it was "From LONGLINE LABS LLC" with `apps.json`'s `familyLine` beneath; coifish.com dropped the line). The websites draw this section with `@longline/web`'s own `FamilySection`, which puts `familyLine` back under the heading; Harbor's leaves it out, and no app uses Harbor's today. Then one card per app in `apps.json` order (three to a row, stacked on phones): the mark (36px) and the name in Fraunces 500, the description in `ink-muted`, and a `label` at the bottom: "You are here" on the current app, "Coming soon" when not live, otherwise a link "Visit coifish.com" (the app's address, in the same tab). Cards are standard Harbor cards; no accent colors. `FamilySection` draws it, given `current`.
 
 ## Public footer
 

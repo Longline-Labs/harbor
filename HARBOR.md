@@ -87,4 +87,4 @@ Short and functional: 150ms ease-out for hover and focus, 200ms for a panel open
 - `app-shell.md` — the app.coifish.com layout (Dock, app bar, tabs, page template) that every app follows.
 - `site.md` — the coifish.com page pattern, section by section, that every marketing site follows.
 - `harbor.css` — the shared components' styles, in the `components` cascade layer (Tailwind's own), so an app's utility classes can still adjust them.
-- `apps.json` — the one list of the six apps, read by the Dock and the "Apps for Community Association Managers" section.
+- `apps.json` — the one list of the six apps, read by the Dock and the "Apps for community association managers" section.

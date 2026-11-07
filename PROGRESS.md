@@ -2,6 +2,18 @@
 
 Newest first. Releases are in `CHANGELOG.md`; this file says where work stands.
 
+## Nov 7, 2026: 0.6.1, the app list says what the websites say (branch `claude/family-wording`, from `origin/main` at 445f3bd; tagged `v0.6.1` locally, NOT merged or pushed)
+
+- `apps.json`: the website copy review's family line and three cards (CHANGELOG, 0.6.1), the same words as
+  `@longline/web` 0.5.3. `FamilySection`'s heading in sentence case. `npm run check` clean, `npm test` 11 of 11.
+- 0.6.0 (Help & support) is already on `main` and tagged on GitHub, so 0.6.1 sits on top of it. 0.6.0 only adds
+  exports and `.support-*` styles, so an app still on 0.5.1 can move straight to 0.6.1 with nothing changing on screen.
+- **To release** (on Brandon's yes): merge `claude/family-wording` into `main`, push `main` and the tag `v0.6.1`.
+- **Re-pins**, one per app on Brandon's yes; none changes anything a customer sees today, so each can wait for the app's
+  next release. AboveBoard, BallastBook, PacketSkipper, ReelMinder, ShipShape, and Coifish: move `#v0.6.0` to `#v0.6.1`
+  on the app's `claude/help-support` branch before it merges, then `npm install`. longline-account (the sign-in site,
+  `go-live`, on 0.5.1): optional, it reads names and addresses only.
+
 ## Nov 7, 2026: 0.6.0, Help & support (branch `claude/support-dialog`, from `origin/main` at 6e08cb2; NOT merged or tagged)
 
 - Built: `SupportProvider`, `SupportButton`, `useSupport`, `SupportDialog`, `SupportForm` (`src/SupportDialog.tsx`), the
