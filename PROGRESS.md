@@ -14,7 +14,13 @@ Newest first. Releases are in `CHANGELOG.md`; this file says where work stands.
   on the app's `claude/help-support` branch before it merges, then `npm install`. longline-account (the sign-in site,
   `go-live`, on 0.5.1): optional, it reads names and addresses only.
 
-## Nov 7, 2026: 0.6.0, Help & support (branch `claude/support-dialog`, from `origin/main` at 6e08cb2; NOT merged or tagged)
+## Nov 7, 2026: 0.6.0, Help & support: RELEASED Nov 7 (tag v0.6.0 at 445f3bd), LIVE in all six apps Nov 10, 2026
+
+- Brandon's yes ("Yes, start release", Nov 7, 2026): `main` fast-forwarded to 445f3bd and tagged `v0.6.0`. All six apps
+  pin `#v0.6.0` and went live with it on Nov 10 (AboveBoard, BallastBook, ReelMinder, PacketSkipper, ShipShape; Coifish
+  last, from 0.1.1). The apps then move to 0.6.1 (wording) with the bot-and-spam publish. Lesson from Coifish's journeys:
+  the dialog's form stays in the page while closed (to keep a draft), so a test selector like `input[type="file"]` across
+  the whole page can match its hidden screenshot picker; scope such selectors to `main`.
 
 - Built: `SupportProvider`, `SupportButton`, `useSupport`, `SupportDialog`, `SupportForm` (`src/SupportDialog.tsx`), the
   shared rules and email shape in `src/support.ts` (also exported as `@longline/harbor/support` for servers), the
