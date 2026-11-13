@@ -1,6 +1,6 @@
 {
   "company": "LONGLINE LABS LLC",
-  "familyLine": "Six small apps from Longline Labs, each built to work the same way.",
+  "familyLine": "Six small apps from Longline Labs, built to work alike.",
   "apps": [
     {
       "key": "coifish",
@@ -32,7 +32,7 @@
       "url": "https://ballastbook.com",
       "appUrl": "https://app.ballastbook.com",
       "live": true,
-      "description": "A simple annual budget builder for each of your associations."
+      "description": "Builds next year's budget for each association. Type the numbers beside last year's, and BallastBook works out what each unit pays and makes the PDF for the board."
     },
     {
       "key": "shipshapefiles",
@@ -40,7 +40,7 @@
       "url": "https://shipshapefiles.com",
       "appUrl": "https://app.shipshapefiles.com",
       "live": true,
-      "description": "Renames every file to your company's own naming convention, so documents are always easy to find."
+      "description": "Names your files the way your company names them. Drop in a PDF, answer two or three questions, and download it with the right name."
     },
     {
       "key": "aboveboard",
@@ -48,7 +48,7 @@
       "url": "https://aboveboarddocs.com",
       "appUrl": "https://app.aboveboarddocs.com",
       "live": true,
-      "description": "One public page for each association's governing documents, minutes, and records."
+      "description": "A public page for each association's documents. Upload the bylaws, budgets, and minutes once, and owners, buyers, and lenders find them at one address."
     }
   ]
 }

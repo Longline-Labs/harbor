@@ -26,6 +26,8 @@ coifish.com is the reference. reelminder.com (reelminders.com until the .com lan
 
 Plain sentences, present tense, second person. Name the thing. Numbers first when the number is the point. No exclamation marks, no emoji, sentence case everywhere, except that Community Manager and Community Association Manager are always capitalized. Buttons name the result. The reader is a Community Association Manager with forty things to do; every sentence should save them one.
 
+How to sound like a person, with ten rules and before-and-after examples: `research/human-wording-2026-11-13/VOICE.md` in the Longline Labs folder (November 13, 2026). Read it before writing or changing any wording on a website.
+
 ## What changes per app
 
 Only four things: the mark, the accent (kicker, mockup app-bar underline, the active card), the copy, and the mockup/timeline content. Everything else is copied, not re-interpreted.

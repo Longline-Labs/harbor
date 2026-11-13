@@ -2,6 +2,12 @@
 
 Newest first. Releases are in `CHANGELOG.md`; this file says where work stands.
 
+## Nov 13, 2026: 0.6.3, wording for a human voice (branch `claude/human-wording-2026-11-13`): NOT PUBLISHED YET
+
+- Brandon (Nov 13, 2026): "Wording needs fixed and needs to sound more human on all websites." `apps.json`: `familyLine` and the BallastBook, ShipShape and AboveBoard descriptions match `@longline/web` 0.5.5 word for word. Coifish, ReelMinder and PacketSkipper keep Harbor's shorter lines, because PacketSkipper's signed-in Settings builds a sentence from the ReelMinder one.
+- `site.md`'s Voice section points to the voice guide: `../../research/human-wording-2026-11-13/VOICE.md`.
+- Left for later (signed-in only, not words-only): `Dock.tsx`'s `aria-label` says "Other LONGLINE LABS LLC apps" aloud (it reads the legal name); it should say "Other Longline Labs apps".
+
 ## Nov 13, 2026: 0.6.2, Community Manager and Community Association Manager capitalized: LIVE
 
 - **Pushed November 13, 2026** (Brandon: "Yes, publish"): `main` 3f03ec9..bf627d8 and the tag `v0.6.2`. Wording only: `FamilySection`'s default heading, the docs, the CSS comment, and the rule in `HARBOR.md`, `site.md` and `CLAUDE.md.snippet`. `@longline/web` 0.5.4 says the same.
