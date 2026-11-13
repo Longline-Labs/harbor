@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.5 — 2026-11-13
+
+ReelMinder moves to reelminder.com (Brandon, November 13, 2026: the name stays ReelMinder, the website and the app move
+to reelminder.com, and reelminders.com forwards there). Addresses only: nothing exported changes shape, so an app takes
+this by moving its pin.
+
+- **`apps.json`**: ReelMinder's `url` is https://reelminder.com and its `appUrl` https://app.reelminder.com (they were
+  reelminders.com and app.reelminders.com, which now forward to the same page on the new address).
+- `site.md` names reelminder.com without the old note.
+
 ## 0.6.4 — 2026-11-13
 
 Wording for a human voice (Brandon, November 13, 2026: "Wording needs fixed and needs to sound more human on all

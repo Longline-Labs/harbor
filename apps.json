@@ -13,8 +13,8 @@
     {
       "key": "reelminder",
       "name": "ReelMinder",
-      "url": "https://reelminders.com",
-      "appUrl": "https://app.reelminders.com",
+      "url": "https://reelminder.com",
+      "appUrl": "https://app.reelminder.com",
       "live": true,
       "description": "Reminders for every association deadline, from insurance renewals to annual meeting notices."
     },

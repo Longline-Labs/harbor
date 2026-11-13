@@ -1,6 +1,6 @@
 # The Longline Labs website pattern
 
-coifish.com is the reference. reelminder.com (reelminders.com until the .com lands) and packetskipper.com use the same page, section for section, with the app's own copy, accent and mark. Someone landing on any of the sites should recognise the others instantly (the website shell, `@longline/web`, now carries this page frame for all six). The design tokens, type and components come from `tokens.css`, `HARBOR.md` and `components.md`; this file is the page itself.
+coifish.com is the reference. reelminder.com and packetskipper.com use the same page, section for section, with the app's own copy, accent and mark. Someone landing on any of the sites should recognise the others instantly (the website shell, `@longline/web`, now carries this page frame for all six). The design tokens, type and components come from `tokens.css`, `HARBOR.md` and `components.md`; this file is the page itself.
 
 ## Site shell
 
