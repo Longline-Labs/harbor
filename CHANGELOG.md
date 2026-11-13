@@ -1,13 +1,13 @@
 # Changelog
 
-## 0.6.3 — 2026-11-13
+## 0.6.4 — 2026-11-13
 
 Wording for a human voice (Brandon, November 13, 2026: "Wording needs fixed and needs to sound more human on all
 websites"). The voice guide is `research/human-wording-2026-11-13/VOICE.md`. Wording only: nothing exported changes
 shape, so an app takes this by moving its pin.
 
-- **`familyLine`** is "Six small apps from Longline Labs, built to work alike." (as `@longline/web` 0.5.5).
-- **BallastBook, ShipShape, and AboveBoard descriptions are the website cards word for word** (as `@longline/web` 0.5.5).
+- **`familyLine`** is "Six small apps from Longline Labs, built to work alike." (as `@longline/web` 0.5.6).
+- **BallastBook, ShipShape, and AboveBoard descriptions are the website cards word for word** (as `@longline/web` 0.5.6).
   ShipShape's no longer says "every file": the app takes PDFs only.
 - **Coifish, ReelMinder, and PacketSkipper keep Harbor's shorter lines.** PacketSkipper's signed-in Settings builds a
   sentence from Harbor's ReelMinder line ("ReelMinder is a separate app from the same family: …"), which only reads right

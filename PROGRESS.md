@@ -2,9 +2,9 @@
 
 Newest first. Releases are in `CHANGELOG.md`; this file says where work stands.
 
-## Nov 13, 2026: 0.6.3, wording for a human voice (branch `claude/human-wording-2026-11-13`): NOT PUBLISHED YET
+## Nov 13, 2026: 0.6.4, wording for a human voice (branch `claude/human-wording-2026-11-13`): NOT PUBLISHED YET
 
-- Brandon (Nov 13, 2026): "Wording needs fixed and needs to sound more human on all websites." `apps.json`: `familyLine` and the BallastBook, ShipShape and AboveBoard descriptions match `@longline/web` 0.5.5 word for word. Coifish, ReelMinder and PacketSkipper keep Harbor's shorter lines, because PacketSkipper's signed-in Settings builds a sentence from the ReelMinder one.
+- Brandon (Nov 13, 2026): "Wording needs fixed and needs to sound more human on all websites." `apps.json`: `familyLine` and the BallastBook, ShipShape and AboveBoard descriptions match `@longline/web` 0.5.6 word for word. Coifish, ReelMinder and PacketSkipper keep Harbor's shorter lines, because PacketSkipper's signed-in Settings builds a sentence from the ReelMinder one.
 - `site.md`'s Voice section points to the voice guide: `../../research/human-wording-2026-11-13/VOICE.md`.
 - Left for later (signed-in only, not words-only): `Dock.tsx`'s `aria-label` says "Other LONGLINE LABS LLC apps" aloud (it reads the legal name); it should say "Other Longline Labs apps".
 
