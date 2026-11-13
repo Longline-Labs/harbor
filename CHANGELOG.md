@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.6.2 — 2026-11-13
+
+Capital letters for the two job titles (Brandon, November 13, 2026: "Community Manager and Community Association Manager
+needs to be capitalized throughout every website and app"). Wording only: nothing exported changes shape, so an app
+takes this by moving its pin.
+
+- **`FamilySection`'s default heading** is "Apps for Community Association Managers" (it was "Apps for community
+  association managers"). No app uses Harbor's `FamilySection` today: every website draws the section with
+  `@longline/web`'s, which says the same since 0.5.4.
+- Docs: the same heading in `components.md`, `site.md`, `HARBOR.md`, and the `harbor.css` comment. `HARBOR.md` and
+  `site.md` carry the rule (Community Manager, Community Managers, Community Association Manager and Community
+  Association Managers are always capitalized, plurals and possessives too, as the one exception to sentence case), and
+  so does `CLAUDE.md.snippet`, the section every app's `CLAUDE.md` carries.
+
 ## 0.6.1 — 2026-11-07
 
 Harbor's app list now says what the websites say. On November 7, 2026 Brandon took every suggestion in the website copy

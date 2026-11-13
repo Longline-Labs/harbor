@@ -1,6 +1,6 @@
 # Harbor — the design language shared by the Longline Labs apps
 
-Harbor is the shared design language for the six Longline Labs LLC apps built for community association managers: **Coifish** (certificates of insurance), **ReelMinder** (reminders), **PacketSkipper** (board packets, minutes, action items), **BallastBook** (annual budgets), **ShipShape** (file naming) and **AboveBoard** (public document posting). One system, six accents. A manager who opens any of them should feel they are in the same office, at a different desk.
+Harbor is the shared design language for the six Longline Labs LLC apps built for Community Association Managers: **Coifish** (certificates of insurance), **ReelMinder** (reminders), **PacketSkipper** (board packets, minutes, action items), **BallastBook** (annual budgets), **ShipShape** (file naming) and **AboveBoard** (public document posting). One system, six accents. A manager who opens any of them should feel they are in the same office, at a different desk.
 
 ## The idea
 
@@ -15,6 +15,8 @@ Three principles decide most questions:
 ## Voice
 
 Write like a competent colleague leaving a note, not like a product. Plain sentences, present tense, second person. Name the thing: "Bayview Landscaping's general liability expires Nov 30" beats "A certificate is expiring soon." Numbers go first when the number is the point: "12 certificates expire this month." Never use exclamation marks in the UI. No emoji anywhere in product copy. Sentence case for every heading, button and label; `label` style is uppercased by CSS, never typed in caps.
+
+**Wording rule (Brandon, November 13, 2026):** Community Manager, Community Managers, Community Association Manager and Community Association Managers are always written with capital letters, plurals and possessives too, in the middle of a sentence, in headings, buttons, page titles, meta descriptions, social-card text, emails and PDFs. Only those two terms: "manager", "property manager", "association manager", "community association management" and "CAM" stay as they are.
 
 Product names are spelled one way everywhere, in prose and in the wordmarks alike: **Coifish**, **ReelMinder**, **PacketSkipper**. Never lowercase them, never write COIFish. The company is **LONGLINE LABS LLC** in legal lines (the copyright, the Terms), always in caps there, and **Longline Labs** in prose. It was LONGLINE LABS LLC until the state approved the Articles of Amendment in October 2026; historical documents keep the old name. "COI" inside Coifish is the certificate-of-insurance pun; let product copy use the term naturally ("every COI, current") rather than forcing it with capitals.
 
@@ -87,4 +89,4 @@ Short and functional: 150ms ease-out for hover and focus, 200ms for a panel open
 - `app-shell.md` — the app.coifish.com layout (Dock, app bar, tabs, page template) that every app follows.
 - `site.md` — the coifish.com page pattern, section by section, that every marketing site follows.
 - `harbor.css` — the shared components' styles, in the `components` cascade layer (Tailwind's own), so an app's utility classes can still adjust them.
-- `apps.json` — the one list of the six apps, read by the Dock and the "Apps for community association managers" section.
+- `apps.json` — the one list of the six apps, read by the Dock and the "Apps for Community Association Managers" section.
