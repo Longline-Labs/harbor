@@ -2,6 +2,11 @@
 
 Newest first. Releases are in `CHANGELOG.md`; this file says where work stands.
 
+## Nov 13, 2026: 0.6.2, Community Manager and Community Association Manager capitalized: LIVE
+
+- **Pushed November 13, 2026** (Brandon: "Yes, publish"): `main` 3f03ec9..bf627d8 and the tag `v0.6.2`. Wording only: `FamilySection`'s default heading, the docs, the CSS comment, and the rule in `HARBOR.md`, `site.md` and `CLAUDE.md.snippet`. `@longline/web` 0.5.4 says the same.
+- Pinned by AboveBoard, BallastBook, Coifish, PacketSkipper, ReelMinder and ShipShape (all live). `longline-account` still pins 0.5.1 and was not moved: it has no text with these terms.
+
 ## Nov 7, 2026: 0.6.1, the app list says what the websites say (branch `claude/family-wording`, from `origin/main` at 445f3bd; tagged `v0.6.1` locally, NOT merged or pushed)
 
 - `apps.json`: the website copy review's family line and three cards (CHANGELOG, 0.6.1), the same words as
